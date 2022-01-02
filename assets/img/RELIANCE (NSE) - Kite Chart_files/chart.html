@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<!-- saved from url=(0322)https://kite.zerodha.com/static/build/chart.html?v=2.9.10#token=738561&symbol=RELIANCE&segment=NSE&volume=true&enctoken=P%2BudxnDEOYawlLCxgSmmO4Q3fhU2Mf%2FVsENRqTTt5taBUYCDjWhn6ofLc89G4Oj5RIp%2B54ksiq7mLr4BJA9K9lxI7CgUrB25igrK%2F0VW%2FBKIKZOa9TFiAQ%3D%3D&user_id=UPH993&access_token=&api_key=&source=&sdk=&theme=&full=true -->
+<html ciq-last-interaction="mouse"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1,maximum-scale=1"><!-- For IE 9 and below --><!--[if IE]><link rel="shortcut icon" href="static/images/favicon.ico"><![endif]--><!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. --><link rel="apple-touch-icon-precomposed" href="https://kite.zerodha.com/static/images/apple-icon-precomposed.png"><!-- Firefox, Chrome, Safari, IE 11+ and Opera. 196x196 pixels in size. --><link rel="icon" href="https://kite.zerodha.com/static/images/favicon.png"><link href="./css(1)" rel="stylesheet" type="text/css"><link rel="stylesheet" type="text/css" href="./style.min.css"><link rel="stylesheet" type="text/css" media="screen" href="./tfc.css"><style>#splash-screen {
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				text-align: center;
+				position: absolute;
+				background-color: #FFFFFF;
+				z-index: 9999;
+			}
+			.su-loader {
+				display: block;
+				margin-top: 15%;
+			}
+			.dot-spinner {
+				margin-left: 0;
+			}
+			.dot-spinner {
+				margin-left: 5px;
+				display: inline-block;
+			}
+			.dot-spinner i {
+				display: inline-block;
+				width: 6px;
+				height: 6px;
+				border-radius: 50%;
+				background-color: #444444;
+				vertical-align: middle;
+			}
+			.dot-spinner i:first-child {
+				transform: translate(-5px);
+				animation: dot-spinner-ani2 .5s linear infinite;
+				opacity: 0;
+			}
+			.dot-spinner i:nth-child(2),
+			.dot-spinner i:nth-child(3) {
+				animation: dot-spinner-ani3 .5s linear infinite;
+			}
+			.dot-spinner i:last-child {
+				animation: dot-spinner-ani1 .5s linear infinite;
+			}
+			@keyframes dot-spinner-ani1 {
+				100% {
+					transform: translate(10px);
+					opacity: 0;
+				}
+			}
+			@keyframes dot-spinner-ani2 {
+				100% {
+					transform: translate(5px);
+					opacity: 1;
+				}
+			}
+			@keyframes dot-spinner-ani3 {
+				100% {
+					transform: translate(5px);
+				}
+			}
+			html.dark #splash-screen {
+				background-color:#181818;
+			}</style><script type="text/javascript" async="">try {
+				var theme = JSON.parse(localStorage.__storejs_kite_theme);
+				if (theme && theme === "dark") {
+					document.documentElement.classList.add("dark");
+				}
+			} catch (_) {
+			}</script><script async="" src="./tfc-kite.js.download"></script><script async="" src="./tfc.js.download"></script><!-- injectjs --><script>var URL_CHART = "/oms/instruments/historical";var URL_ROOT = "/";var URL_TICKER = "wss://ws.zerodha.com/";var URL_STATIC = "/";</script><style id="maxHeightCSS">cq-dialog { max-height: 592px }</style></head><body class="stx-panel-legend full-chart break-lg toolbar-on"><cq-context class="ciq-day"><cq-ui-manager></cq-ui-manager><cq-color-picker><cq-colors><ul><li><span style="background-color: rgb(255, 255, 255);"></span></li><li><span style="background-color: rgb(225, 225, 225);"></span></li><li><span style="background-color: rgb(204, 204, 204);"></span></li><li><span style="background-color: rgb(183, 183, 183);"></span></li><li><span style="background-color: rgb(160, 160, 165);"></span></li><li><span style="background-color: rgb(137, 137, 137);"></span></li><li><span style="background-color: rgb(112, 112, 112);"></span></li><li><span style="background-color: rgb(98, 98, 98);"></span></li><li><span style="background-color: rgb(85, 85, 85);"></span></li><li><span style="background-color: rgb(70, 70, 70);"></span></li><li><span style="background-color: rgb(54, 54, 54);"></span></li><li><span style="background-color: rgb(38, 38, 38);"></span></li><li><span style="background-color: rgb(29, 29, 29);"></span></li><li><span style="background-color: rgb(0, 0, 0);"></span></li></ul><ul><li><span style="background-color: rgb(244, 151, 124);"></span></li><li><span style="background-color: rgb(247, 172, 132);"></span></li><li><span style="background-color: rgb(251, 197, 141);"></span></li><li><span style="background-color: rgb(255, 246, 158);"></span></li><li><span style="background-color: rgb(196, 222, 158);"></span></li><li><span style="background-color: rgb(133, 201, 158);"></span></li><li><span style="background-color: rgb(127, 205, 199);"></span></li><li><span style="background-color: rgb(117, 208, 244);"></span></li><li><span style="background-color: rgb(129, 168, 215);"></span></li><li><span style="background-color: rgb(133, 148, 200);"></span></li><li><span style="background-color: rgb(137, 131, 188);"></span></li><li><span style="background-color: rgb(161, 135, 189);"></span></li><li><span style="background-color: rgb(187, 141, 190);"></span></li><li><span style="background-color: rgb(242, 155, 193);"></span></li></ul><ul><li><span style="background-color: rgb(239, 108, 83);"></span></li><li><span style="background-color: rgb(243, 141, 91);"></span></li><li><span style="background-color: rgb(248, 174, 99);"></span></li><li><span style="background-color: rgb(255, 243, 113);"></span></li><li><span style="background-color: rgb(172, 210, 119);"></span></li><li><span style="background-color: rgb(67, 183, 122);"></span></li><li><span style="background-color: rgb(46, 187, 179);"></span></li><li><span style="background-color: rgb(0, 191, 240);"></span></li><li><span style="background-color: rgb(74, 141, 200);"></span></li><li><span style="background-color: rgb(88, 117, 183);"></span></li><li><span style="background-color: rgb(98, 93, 166);"></span></li><li><span style="background-color: rgb(133, 97, 167);"></span></li><li><span style="background-color: rgb(166, 101, 167);"></span></li><li><span style="background-color: rgb(238, 111, 169);"></span></li></ul><ul><li><span style="background-color: rgb(234, 29, 44);"></span></li><li><span style="background-color: rgb(238, 101, 46);"></span></li><li><span style="background-color: rgb(244, 147, 47);"></span></li><li><span style="background-color: rgb(255, 241, 38);"></span></li><li><span style="background-color: rgb(142, 198, 72);"></span></li><li><span style="background-color: rgb(0, 165, 83);"></span></li><li><span style="background-color: rgb(0, 169, 156);"></span></li><li><span style="background-color: rgb(0, 175, 237);"></span></li><li><span style="background-color: rgb(0, 115, 186);"></span></li><li><span style="background-color: rgb(0, 86, 164);"></span></li><li><span style="background-color: rgb(50, 51, 144);"></span></li><li><span style="background-color: rgb(102, 48, 143);"></span></li><li><span style="background-color: rgb(145, 42, 142);"></span></li><li><span style="background-color: rgb(233, 8, 140);"></span></li></ul><ul><li><span style="background-color: rgb(155, 11, 22);"></span></li><li><span style="background-color: rgb(158, 65, 23);"></span></li><li><span style="background-color: rgb(161, 97, 24);"></span></li><li><span style="background-color: rgb(198, 185, 32);"></span></li><li><span style="background-color: rgb(90, 133, 45);"></span></li><li><span style="background-color: rgb(0, 114, 56);"></span></li><li><span style="background-color: rgb(0, 116, 106);"></span></li><li><span style="background-color: rgb(0, 119, 161);"></span></li><li><span style="background-color: rgb(0, 76, 127);"></span></li><li><span style="background-color: rgb(0, 53, 112);"></span></li><li><span style="background-color: rgb(29, 23, 98);"></span></li><li><span style="background-color: rgb(68, 18, 97);"></span></li><li><span style="background-color: rgb(98, 9, 95);"></span></li><li><span style="background-color: rgb(156, 0, 93);"></span></li></ul><ul><li><span style="background-color: rgb(119, 0, 1);"></span></li><li><span style="background-color: rgb(121, 46, 3);"></span></li><li><span style="background-color: rgb(123, 73, 6);"></span></li><li><span style="background-color: rgb(129, 122, 11);"></span></li><li><span style="background-color: rgb(65, 102, 30);"></span></li><li><span style="background-color: rgb(0, 88, 39);"></span></li><li><span style="background-color: rgb(0, 89, 81);"></span></li><li><span style="background-color: rgb(0, 59, 92);"></span></li><li><span style="background-color: rgb(0, 29, 64);"></span></li><li><span style="background-color: rgb(0, 14, 53);"></span></li><li><span style="background-color: rgb(4, 0, 44);"></span></li><li><span style="background-color: rgb(25, 0, 43);"></span></li><li><span style="background-color: rgb(44, 0, 42);"></span></li><li><span style="background-color: rgb(88, 0, 40);"></span></li></ul></cq-colors><cq-overrides><template></template></cq-overrides></cq-color-picker><div class="ciq-nav"><cq-menu class="ciq-search"><cq-lookup cq-keystroke-claim="" cq-keystroke-default="" cq-uppercase=""><cq-lookup-input cq-no-close=""><input id="symbol" type="text" spellcheck="off" autocomplete="off" autocorrect="off" autocapitalize="off" name="symbol" placeholder="Enter Symbol"><cq-lookup-icon></cq-lookup-icon></cq-lookup-input><cq-lookup-results><cq-lookup-filters cq-no-close=""><cq-filter class="true"><translate original="ALL">ALL</translate></cq-filter><cq-filter><translate original="NSE">NSE</translate></cq-filter><cq-filter><translate original="BSE">BSE</translate></cq-filter><cq-filter><translate original="NFO">NFO</translate></cq-filter><cq-filter><translate original="CDS">CDS</translate></cq-filter><cq-filter><translate original="MCX">MCX</translate></cq-filter></cq-lookup-filters><cq-scroll class="ps-container ps-theme-default" data-ps-id="5fa27017-f466-543b-789d-76aeed954fe8" style="overflow-y: auto; height: 460px; max-height: 460px;"><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="./saved_resource.html"></object></cq-scroll></cq-lookup-results></cq-lookup></cq-menu><!-- enables the more button when in break-sm mode --><div class="sidenav-toggle ciq-toggles"><cq-toggle class="ciq-sidenav" cq-member="sidenav" cq-toggles="sidenavOn,sidenavOff"><span></span><cq-tooltip><translate original="More">More</translate></cq-tooltip></cq-toggle></div><div class="ciq-menu-section"><div class="ciq-dropdowns"><cq-menu class="ciq-menu ciq-period"><span><cq-clickable stxbind="Layout.periodicity"><translate original="1D">1D</translate></cq-clickable></span><cq-menu-dropdown class="ps-container ps-theme-default ps-active-y" data-ps-id="a90d3e4c-876e-d894-0ef7-317953974a06" style="overflow-y: auto; max-height: 504px;"><cq-item stxtap="Layout.setPeriodicity(1,1,&#39;minute&#39;)"><translate original="1 Min">1 Min</translate></cq-item><cq-item stxtap="Layout.setPeriodicity(1,2,&#39;minute&#39;)"><translate original="2 Min">2 Min</translate></cq-item><cq-item stxtap="Layout.setPeriodicity(1,3,&#39;minute&#39;)"><translate original="3 Min">3 Min</translate></cq-item><cq-item stxtap="Layout.setPeriodicity(1,4,&#39;minute&#39;)"><translate original="4 Min">4 Min</translate></cq-item><cq-item stxtap="Layout.setPeriodicity(1,5,&#39;minute&#39;)"><translate original="5 Min">5 Min</translate></cq-item><cq-item stxtap="Layout.setPeriodicity(1,10,&#39;minute&#39;)"><translate original="10 Min">10 Min</translate></cq-item><cq-item stxtap="Layout.setPeriodicity(1,15,&#39;minute&#39;)"><translate original="15 Min">15 Min</translate></cq-item><cq-item stxtap="Layout.setPeriodicity(1,30,&#39;minute&#39;)"><translate original="30 Min">30 Min</translate></cq-item><!-- <cq-item stxtap="Layout.setPeriodicity(1,75,'minute')">75 Min</cq-item> --><cq-separator></cq-separator><cq-item stxtap="Layout.setPeriodicity(1,60,&#39;minute&#39;)"><translate original="1 Hour">1 Hour</translate></cq-item><cq-item stxtap="Layout.setPeriodicity(1,120,&#39;minute&#39;)"><translate original="2 Hours">2 Hours</translate></cq-item><cq-item stxtap="Layout.setPeriodicity(1,180,&#39;minute&#39;)"><translate original="3 Hours">3 Hours</translate></cq-item><cq-separator></cq-separator><cq-item stxtap="Layout.setPeriodicity(1,1,&#39;day&#39;)"><translate original="1 D">1 D</translate></cq-item><cq-item stxtap="Layout.setPeriodicity(1,1,&#39;week&#39;)"><translate original="1 W">1 W</translate></cq-item><cq-item stxtap="Layout.setPeriodicity(1,1,&#39;month&#39;)"><translate original="1 Mo">1 Mo</translate></cq-item><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="./saved_resource(1).html"></object></cq-menu-dropdown></cq-menu><cq-menu class="ciq-menu ciq-views collapse"><span><translate original="Views">Views</translate></span><cq-menu-dropdown class="ps-container ps-theme-default ps-active-y" data-ps-id="12b3dc13-e958-e85e-66dc-2e234eb03c1a" style="overflow-y: auto; max-height: 504px;"><cq-views><cq-heading><translate original="Saved Views">Saved Views</translate></cq-heading><cq-views-content></cq-views-content><cq-separator cq-partial=""></cq-separator><cq-view-save><cq-item><cq-plus></cq-plus><translate original="Save View">Save View</translate></cq-item></cq-view-save></cq-views><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="./saved_resource(2).html"></object></cq-menu-dropdown></cq-menu><cq-menu class="ciq-menu ciq-display collapse"><span><translate original="Display">Display</translate></span><cq-menu-dropdown class="ps-container ps-theme-default ps-active-y" data-ps-id="b2fe292e-3ed8-ba2a-bcac-2ed1cbe66cf0" style="overflow-y: auto; max-height: 504px;"><cq-heading><translate original="Chart Style">Chart Style</translate></cq-heading><cq-item stxsetget="Layout.ChartType(&#39;candle&#39;)" class="ciq-active"><translate original="Candle">Candle</translate><span class="ciq-radio"><span></span></span></cq-item><cq-item stxsetget="Layout.ChartType(&#39;bar&#39;)"><translate original="Bar">Bar</translate><span class="ciq-radio"><span></span></span></cq-item><cq-item stxsetget="Layout.ChartType(&#39;colored_bar&#39;)"><translate original="Colored Bar">Colored Bar</translate><span class="ciq-radio"><span></span></span></cq-item><cq-item stxsetget="Layout.ChartType(&#39;line&#39;)"><translate original="Line">Line</translate><span class="ciq-radio"><span></span></span></cq-item><cq-item stxsetget="Layout.ChartType(&#39;vertex_line&#39;)"><translate original="Vertex Line">Vertex Line</translate><span class="ciq-radio"><span></span></span></cq-item><cq-item stxsetget="Layout.ChartType(&#39;step&#39;)"><translate original="Step">Step</translate><span class="ciq-radio"><span></span></span></cq-item><cq-item stxsetget="Layout.ChartType(&#39;mountain&#39;)"><translate original="Mountain">Mountain</translate><span class="ciq-radio"><span></span></span></cq-item><cq-item stxsetget="Layout.ChartType(&#39;baseline_delta&#39;)"><translate original="Baseline">Baseline</translate><span class="ciq-radio"><span></span></span></cq-item><cq-item stxsetget="Layout.ChartType(&#39;hollow_candle&#39;)"><translate original="Hollow Candle">Hollow Candle</translate><span class="ciq-radio"><span></span></span></cq-item><cq-item stxsetget="Layout.ChartType(&#39;volume_candle&#39;)"><translate original="Volume Candle">Volume Candle</translate><span class="ciq-radio"><span></span></span></cq-item><cq-item stxsetget="Layout.ChartType(&#39;colored_hlc&#39;)"><translate original="Colored HLC Bar">Colored HLC Bar</translate><span class="ciq-radio"><span></span></span></cq-item><cq-item stxsetget="Layout.ChartType(&#39;scatterplot&#39;)"><translate original="Scatterplot">Scatterplot</translate><span class="ciq-radio"><span></span></span></cq-item><cq-item stxsetget="Layout.ChartType(&#39;histogram&#39;)"><translate original="Histogram">Histogram</translate><span class="ciq-radio"><span></span></span></cq-item><cq-separator></cq-separator><cq-item><div stxsetget="Layout.ChartType(&#39;heikinashi&#39;)"><translate original="Heikin Ashi">Heikin Ashi</translate><span class="ciq-radio"><span></span></span></div></cq-item><cq-item><span class="ciq-edit" stxtap="Layout.showAggregationEdit(&#39;kagi&#39;)"></span><div stxsetget="Layout.ChartType(&#39;kagi&#39;)"><translate original="Kagi">Kagi</translate><span class="ciq-radio"><span></span></span></div></cq-item><cq-item><span class="ciq-edit" stxtap="Layout.showAggregationEdit(&#39;linebreak&#39;)"></span><div stxsetget="Layout.ChartType(&#39;linebreak&#39;)"><translate original="Line Break">Line Break</translate><span class="ciq-radio"><span></span></span></div></cq-item><cq-item><span class="ciq-edit" stxtap="Layout.showAggregationEdit(&#39;renko&#39;)"></span><div stxsetget="Layout.ChartType(&#39;renko&#39;)"><translate original="Renko">Renko</translate><span class="ciq-radio"><span></span></span></div></cq-item><cq-item><span class="ciq-edit" stxtap="Layout.showAggregationEdit(&#39;rangebars&#39;)"></span><div stxsetget="Layout.ChartType(&#39;rangebars&#39;)"><translate original="Range Bars">Range Bars</translate><span class="ciq-radio"><span></span></span></div></cq-item><cq-item><span class="ciq-edit" stxtap="Layout.showAggregationEdit(&#39;pandf&#39;)"></span><div stxsetget="Layout.ChartType(&#39;pandf&#39;)"><translate original="Point &amp; Figure">Point &amp; Figure</translate><span class="ciq-radio"><span></span></span></div></cq-item><cq-separator></cq-separator><cq-heading><translate original="Chart Preferences">Chart Preferences</translate></cq-heading><cq-item stxsetget="Layout.ChartScale(&#39;log&#39;)"><translate original="Log Scale">Log Scale</translate><span class="ciq-checkbox ciq-active"><span></span></span></cq-item><cq-item stxsetget="Layout.FlippedChart()"><translate original="Invert Y-Axis">Invert Y-Axis</translate><span class="ciq-checkbox ciq-active"><span></span></span></cq-item><!-- <cq-item stxsetget="Layout.ExtendedHours()">Extended Hours<span class="ciq-checkbox ciq-active"><span></span></span>
+						</cq-item> --><cq-item stxsetget="Layout.RangeSlider()"><translate original="Range Selector">Range Selector</translate><span class="ciq-checkbox ciq-active"><span></span></span></cq-item><cq-item id="fut_continuous" style="display: none;"><translate original="Continuous data">Continuous data</translate><span class="ciq-checkbox ciq-active"><span></span></span></cq-item><!-- Uncomment this option for access to cryptoIQ Marketdepth/Orderbook functionality --><!-- <cq-item stxsetget="Layout.MarketDepth()">Market Depth<span class="ciq-checkbox ciq-active"><span></span></span>
+						</cq-item> --><cq-separator></cq-separator><cq-heading class="multiple-charts"><translate original="Multiple charts">Multiple charts</translate></cq-heading><cq-item class="multiple-charts" id="open_mutliple_dialog_2"><translate original="2 charts">2 charts</translate></cq-item><cq-item class="multiple-charts" id="open_mutliple_dialog_4"><translate original="4 charts">4 charts</translate></cq-item><cq-separator class="multiple-charts"></cq-separator><!-- <cq-heading>Locale</cq-heading>
+							<cq-item><cq-clickable cq-selector="cq-timezone-dialog" cq-method="open">Change Timezone</cq-clickable></cq-item>
+							<cq-item stxsetget="Layout.Language()"><cq-flag></cq-flag><cq-language-name>Change Language</cq-language-name></cq-item>
+						<cq-separator></cq-separator> --><cq-heading><translate original="Themes">Themes</translate></cq-heading><cq-themes><cq-themes-builtin cq-no-close=""><template></template><cq-item><translate original="Day">Day</translate></cq-item><cq-item><translate original="Night">Night</translate></cq-item></cq-themes-builtin><cq-themes-custom cq-no-close=""><template></template></cq-themes-custom><cq-separator cq-partial=""></cq-separator><cq-item stxtap="newTheme()"><cq-plus></cq-plus><translate original="New Theme">New Theme</translate></cq-item></cq-themes><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="./saved_resource(3).html"></object></cq-menu-dropdown></cq-menu><cq-menu class="ciq-menu ciq-studies collapse"><span><translate original="Studies">Studies</translate></span><cq-menu-dropdown cq-no-scroll=""><cq-study-legend cq-no-close="" style="display: none;"><cq-section-dynamic><cq-heading><translate original="Current Studies">Current Studies</translate></cq-heading><cq-study-legend-content><template cq-study-legend=""></template></cq-study-legend-content><cq-placeholder><div stxtap="Layout.clearStudies()" class="ciq-btn sm"><translate original="Clear All">Clear All</translate></div></cq-placeholder></cq-section-dynamic></cq-study-legend><!-- study search override --> <input cq-no-close="" id="studyLookup" type="text" spellcheck="off" autocomplete="off" autocorrect="off" autocapitalize="off" name="symbol" placeholder="Search in studies"><!-- end of study search override --><!-- comment in the following lines if you have access to ScriptIQ --><!-- <cq-heading>ScriptIQ</cq-heading>
+							<cq-item><cq-clickable cq-selector="cq-scriptiq-editor" cq-method="open">New Script</cq-clickable></cq-item>
+							<cq-scriptiq-menu>
+								<cq-scriptiq-content>
+										<template>
+											<cq-item>
+												<cq-label></cq-label>
+												<div>
+													<span class="ciq-edit"></span>
+													<span class="ciq-icon ciq-close"></span>
+												</div>
+											</cq-item>
+										</template>
+								</cq-scriptiq-content>
+							</cq-scriptiq-menu>
+						<cq-separator></cq-separator>
+						<cq-heading>Studies</cq-heading> --><cq-scroll class="ps-container ps-theme-default ps-active-y" data-ps-id="9c7b6b48-4883-5d25-1a68-0c84840c7960" style="overflow-y: auto; height: 464px; max-height: 464px;"><cq-studies><cq-studies-content><cq-item><cq-label></cq-label><translate original="ADX/DMS">ADX/DMS</translate></cq-item><cq-item><cq-label></cq-label><translate original="ATR Bands">ATR Bands</translate></cq-item><cq-item><cq-label></cq-label><translate original="ATR Trailing Stops">ATR Trailing Stops</translate></cq-item><cq-item><cq-label></cq-label><translate original="Accumulation/Distribution">Accumulation/Distribution</translate></cq-item><cq-item><cq-label></cq-label><translate original="Accumulative Swing Index">Accumulative Swing Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="Alligator">Alligator</translate></cq-item><cq-item><cq-label></cq-label><translate original="Anchored VWAP">Anchored VWAP</translate></cq-item><cq-item><cq-label></cq-label><translate original="Aroon">Aroon</translate></cq-item><cq-item><cq-label></cq-label><translate original="Aroon Oscillator">Aroon Oscillator</translate></cq-item><cq-item><cq-label></cq-label><translate original="Average True Range">Average True Range</translate></cq-item><cq-item><cq-label></cq-label><translate original="Awesome Oscillator">Awesome Oscillator</translate></cq-item><cq-item><cq-label></cq-label><translate original="Balance of Power">Balance of Power</translate></cq-item><cq-item><cq-label></cq-label><translate original="Bollinger %b">Bollinger %b</translate></cq-item><cq-item><cq-label></cq-label><translate original="Bollinger Bands">Bollinger Bands</translate></cq-item><cq-item><cq-label></cq-label><translate original="Bollinger Bandwidth">Bollinger Bandwidth</translate></cq-item><cq-item><cq-label></cq-label><translate original="Candlestick Patterns">Candlestick Patterns</translate></cq-item><cq-item><cq-label></cq-label><translate original="Center Of Gravity">Center Of Gravity</translate></cq-item><cq-item><cq-label></cq-label><translate original="Central Pivot Range">Central Pivot Range</translate></cq-item><cq-item><cq-label></cq-label><translate original="Chaikin Money Flow">Chaikin Money Flow</translate></cq-item><cq-item><cq-label></cq-label><translate original="Chaikin Volatility">Chaikin Volatility</translate></cq-item><cq-item><cq-label></cq-label><translate original="Chande Forecast Oscillator">Chande Forecast Oscillator</translate></cq-item><cq-item><cq-label></cq-label><translate original="Chande Momentum Oscillator">Chande Momentum Oscillator</translate></cq-item><cq-item><cq-label></cq-label><translate original="Choppiness Index">Choppiness Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="Commodity Channel Index">Commodity Channel Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="Coppock Curve">Coppock Curve</translate></cq-item><cq-item><cq-label></cq-label><translate original="Correlation Coefficient">Correlation Coefficient</translate></cq-item><cq-item><cq-label></cq-label><translate original="Darvas Box">Darvas Box</translate></cq-item><cq-item><cq-label></cq-label><translate original="Detrended Price Oscillator">Detrended Price Oscillator</translate></cq-item><cq-item><cq-label></cq-label><translate original="Disparity Index">Disparity Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="Donchian Channel">Donchian Channel</translate></cq-item><cq-item><cq-label></cq-label><translate original="Donchian Width">Donchian Width</translate></cq-item><cq-item><cq-label></cq-label><translate original="Ease of Movement">Ease of Movement</translate></cq-item><cq-item><cq-label></cq-label><translate original="Ehler Fisher Transform">Ehler Fisher Transform</translate></cq-item><cq-item><cq-label></cq-label><translate original="Elder Force Index">Elder Force Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="Elder Impulse System">Elder Impulse System</translate></cq-item><cq-item><cq-label></cq-label><translate original="Elder Ray Index">Elder Ray Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="Fractal Chaos Bands">Fractal Chaos Bands</translate></cq-item><cq-item><cq-label></cq-label><translate original="Fractal Chaos Oscillator">Fractal Chaos Oscillator</translate></cq-item><cq-item><cq-label></cq-label><translate original="Gator Oscillator">Gator Oscillator</translate></cq-item><cq-item><cq-label></cq-label><translate original="Gopalakrishnan Range Index">Gopalakrishnan Range Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="High Low Bands">High Low Bands</translate></cq-item><cq-item><cq-label></cq-label><translate original="High Minus Low">High Minus Low</translate></cq-item><cq-item><cq-label></cq-label><translate original="Highest High Value">Highest High Value</translate></cq-item><cq-item><cq-label></cq-label><translate original="Historical Volatility">Historical Volatility</translate></cq-item><cq-item><cq-label></cq-label><translate original="Ichimoku Clouds">Ichimoku Clouds</translate></cq-item><cq-item><cq-label></cq-label><translate original="Intraday Momentum Index">Intraday Momentum Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="Keltner Channel">Keltner Channel</translate></cq-item><cq-item><cq-label></cq-label><translate original="Klinger Volume Oscillator">Klinger Volume Oscillator</translate></cq-item><cq-item><cq-label></cq-label><translate original="Linear Reg Forecast">Linear Reg Forecast</translate></cq-item><cq-item><cq-label></cq-label><translate original="Linear Reg Intercept">Linear Reg Intercept</translate></cq-item><cq-item><cq-label></cq-label><translate original="Linear Reg R2">Linear Reg R2</translate></cq-item><cq-item><cq-label></cq-label><translate original="Linear Reg Slope">Linear Reg Slope</translate></cq-item><cq-item><cq-label></cq-label><translate original="Lowest Low Value">Lowest Low Value</translate></cq-item><cq-item><cq-label></cq-label><translate original="MACD">MACD</translate></cq-item><cq-item><cq-label></cq-label><translate original="MACD Divergence">MACD Divergence</translate></cq-item><cq-item><cq-label></cq-label><translate original="Market Facilitation Index">Market Facilitation Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="Mass Index">Mass Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="Median Price">Median Price</translate></cq-item><cq-item><cq-label></cq-label><translate original="Momentum Indicator">Momentum Indicator</translate></cq-item><cq-item><cq-label></cq-label><translate original="Money Flow Index">Money Flow Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="Moving Average">Moving Average</translate></cq-item><cq-item><cq-label></cq-label><translate original="Moving Average Deviation">Moving Average Deviation</translate></cq-item><cq-item><cq-label></cq-label><translate original="Moving Average Envelope">Moving Average Envelope</translate></cq-item><cq-item><cq-label></cq-label><translate original="Negative Volume Index">Negative Volume Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="On Balance Volume">On Balance Volume</translate></cq-item><cq-item><cq-label></cq-label><translate original="Open interest">Open interest</translate></cq-item><cq-item><cq-label></cq-label><translate original="Parabolic SAR">Parabolic SAR</translate></cq-item><cq-item><cq-label></cq-label><translate original="Pivot Points">Pivot Points</translate></cq-item><cq-item><cq-label></cq-label><translate original="Positive Volume Index">Positive Volume Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="Pretty Good Oscillator">Pretty Good Oscillator</translate></cq-item><cq-item><cq-label></cq-label><translate original="Price Momentum Oscillator">Price Momentum Oscillator</translate></cq-item><cq-item><cq-label></cq-label><translate original="Price Oscillator">Price Oscillator</translate></cq-item><cq-item><cq-label></cq-label><translate original="Price Rate of Change">Price Rate of Change</translate></cq-item><cq-item><cq-label></cq-label><translate original="Price Volume Trend">Price Volume Trend</translate></cq-item><cq-item><cq-label></cq-label><translate original="Prime Number Bands">Prime Number Bands</translate></cq-item><cq-item><cq-label></cq-label><translate original="Prime Number Oscillator">Prime Number Oscillator</translate></cq-item><cq-item><cq-label></cq-label><translate original="Pring&#39;s Know Sure Thing">Pring's Know Sure Thing</translate></cq-item><cq-item><cq-label></cq-label><translate original="Pring&#39;s Special K">Pring's Special K</translate></cq-item><cq-item><cq-label></cq-label><translate original="Psychological Line">Psychological Line</translate></cq-item><cq-item><cq-label></cq-label><translate original="QStick">QStick</translate></cq-item><cq-item><cq-label></cq-label><translate original="RAVI">RAVI</translate></cq-item><cq-item><cq-label></cq-label><translate original="RSI">RSI</translate></cq-item><cq-item><cq-label></cq-label><translate original="RSI Divergence">RSI Divergence</translate></cq-item><cq-item><cq-label></cq-label><translate original="Rainbow Moving Average">Rainbow Moving Average</translate></cq-item><cq-item><cq-label></cq-label><translate original="Rainbow Oscillator">Rainbow Oscillator</translate></cq-item><cq-item><cq-label></cq-label><translate original="Random Walk Index">Random Walk Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="Relative Vigor Index">Relative Vigor Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="Relative Volatility">Relative Volatility</translate></cq-item><cq-item><cq-label></cq-label><translate original="STARC Bands">STARC Bands</translate></cq-item><cq-item><cq-label></cq-label><translate original="Schaff Trend Cycle">Schaff Trend Cycle</translate></cq-item><cq-item><cq-label></cq-label><translate original="Shinohara Intensity Ratio">Shinohara Intensity Ratio</translate></cq-item><cq-item><cq-label></cq-label><translate original="Standard Deviation">Standard Deviation</translate></cq-item><cq-item><cq-label></cq-label><translate original="Stochastic Divergence">Stochastic Divergence</translate></cq-item><cq-item><cq-label></cq-label><translate original="Stochastic Momentum Index">Stochastic Momentum Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="StochasticRSI">StochasticRSI</translate></cq-item><cq-item><cq-label></cq-label><translate original="Stochastics">Stochastics</translate></cq-item><cq-item><cq-label></cq-label><translate original="Supertrend">Supertrend</translate></cq-item><cq-item><cq-label></cq-label><translate original="Swing Index">Swing Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="TRIX">TRIX</translate></cq-item><cq-item><cq-label></cq-label><translate original="Time Series Forecast">Time Series Forecast</translate></cq-item><cq-item><cq-label></cq-label><translate original="Trade Volume Index">Trade Volume Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="Trend Intensity Index">Trend Intensity Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="True Range">True Range</translate></cq-item><cq-item><cq-label></cq-label><translate original="Twiggs Money Flow">Twiggs Money Flow</translate></cq-item><cq-item><cq-label></cq-label><translate original="Typical Price">Typical Price</translate></cq-item><cq-item><cq-label></cq-label><translate original="Ulcer Index">Ulcer Index</translate></cq-item><cq-item><cq-label></cq-label><translate original="Ultimate Oscillator">Ultimate Oscillator</translate></cq-item><cq-item><cq-label></cq-label><translate original="VWAP">VWAP</translate></cq-item><cq-item><cq-label></cq-label><translate original="Valuation Lines">Valuation Lines</translate></cq-item><cq-item><cq-label></cq-label><translate original="Vertical Horizontal Filter">Vertical Horizontal Filter</translate></cq-item><cq-item><cq-label></cq-label><translate original="Volume Chart">Volume Chart</translate></cq-item><cq-item><cq-label></cq-label><translate original="Volume Oscillator">Volume Oscillator</translate></cq-item><cq-item><cq-label></cq-label><translate original="Volume Profile">Volume Profile</translate></cq-item><cq-item><cq-label></cq-label><translate original="Volume Rate of Change">Volume Rate of Change</translate></cq-item><cq-item><cq-label></cq-label><translate original="Volume Underlay">Volume Underlay</translate></cq-item><cq-item><cq-label></cq-label><translate original="Vortex Indicator">Vortex Indicator</translate></cq-item><cq-item><cq-label></cq-label><translate original="Weighted Close">Weighted Close</translate></cq-item><cq-item><cq-label></cq-label><translate original="Williams %R">Williams %R</translate></cq-item><cq-item><cq-label></cq-label><translate original="ZigZag">ZigZag</translate></cq-item></cq-studies-content></cq-studies><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px; height: 464px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 67px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="./saved_resource(4).html"></object></cq-scroll></cq-menu-dropdown></cq-menu><cq-menu class="ciq-menu"><span class="layout-setting"><translate original="Layout">Layout</translate></span><cq-menu-dropdown class="preferences ps-container ps-theme-default ps-active-y" data-ps-id="aa274e27-cebf-1637-8b54-25f89e15b909" style="overflow-y: auto; max-height: 504px;"><cq-item class="save-layout-btn" onclick="saveLayout(this)"><translate original="Save preferences">Save preferences</translate></cq-item><cq-item onclick="clearLayout()"><translate original="Clear preferences">Clear preferences</translate></cq-item><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="./saved_resource(5).html"></object></cq-menu-dropdown></cq-menu><cq-toggle class="ciq-CH mob-cross" cq-member="crosshair"><span></span><cq-tooltip><translate original="Crosshair">Crosshair</translate></cq-tooltip></cq-toggle><cq-toggle class="ciq-HU mob-tooltip" cq-member="headsUp" cq-toggles="dynamic,static,null"><span></span><cq-tooltip><translate original="Info">Info</translate></cq-tooltip></cq-toggle><cq-toggle class="ciq-draw mob-draw"><span></span><cq-tooltip><translate original="Draw">Draw</translate></cq-tooltip></cq-toggle><cq-menu class="ciq-menu stx-markers collapse"><span><translate original="Events">Events</translate></span><cq-menu-dropdown class="ps-container ps-theme-default ps-active-y" data-ps-id="0c4adc14-e921-6d2e-4309-1c6277089b24" style="overflow-y: auto; max-height: 504px;"><cq-item class="ta_markers-ui" stxtap="Markers.showMarkers(&#39;circle&#39;)"><translate original="Orders">Orders</translate><span class="ciq-radio"><span></span></span></cq-item><cq-separator></cq-separator><cq-item stxtap="Markers.showMarkers()" class="ciq-active"><translate original="None">None</translate><span class="ciq-radio"><span></span></span></cq-item><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="./saved_resource(6).html"></object></cq-menu-dropdown></cq-menu></div><div class="trade-toggles ciq-toggles" style="pointer-events: auto;"><!-- comment in the following line if you are using the TFC plug in --><cq-toggle class="sidebar stx-trade"><span></span><translate original="Trade">Trade</translate><cq-tooltip><translate original="Trade">Trade</translate></cq-tooltip></cq-toggle><!-- comment in the following line if you are using the tradingcentral plug in --><!-- <cq-toggle class="stx-tradingcentral"><span></span><cq-tooltip>Analysis</cq-tooltip></cq-toggle> --></div><!-- any entry in this div will be shown in the side navigation bar in break-sm mode --><div class="icon-toggles ciq-toggles"><cq-toggle class="ciq-CH web-cross" cq-member="crosshair"><span></span><cq-tooltip><translate original="Crosshair">Crosshair</translate></cq-tooltip></cq-toggle><cq-toggle class="ciq-HU web-tooltip" cq-member="headsUp" cq-toggles="dynamic,static,null"><span></span><cq-tooltip><translate original="Info">Info</translate></cq-tooltip></cq-toggle><cq-toggle class="ciq-draw web-draw active"><span></span><cq-tooltip><translate original="Draw">Draw</translate></cq-tooltip></cq-toggle><div class="refresh-chart custom-icons" title="Refresh chart" id="refresh_chart"><!-- <img class="svg" src="/static/build/chart/img/refresh.svg"> --></div><div class="pop-chart custom-icons" title="Popout chart" id="popout_chart" style="display: none;"><!-- <img class="svg" src="/static/build/chart/img/popout.svg"> --></div></div></div></div><!-- End Navbar --><!-- comment in the following line if you have access to ScriptIQ --><!-- <cq-scriptiq></cq-scriptiq> --><!-- comment in the following line if you are using the tradingcentral plug in --><!-- <cq-tradingcentral token="leWp5sKSbV7sENXba2EUXQ==" partner="647" disabled></cq-tradingcentral> --><div class="ciq-chart-area" style="left: 0px; right: 280px;"><div class="ciq-chart" style="height: 502px;"><cq-drawing-palette class="grid" cq-drawing-edit="none"><div class="palette-main" style="height: 559px;"><div class="mini-widget-group"><cq-item class="ciq-mini-widget" cq-view="list" stxtap="changeView(&#39;list&#39;)"><span class="icon"></span><label><translate original="List View">List View</translate></label></cq-item><cq-item class="ciq-mini-widget" cq-view="grid" stxtap="changeView(&#39;grid&#39;)"><span class="icon"></span><label><translate original="Grid View">Grid View</translate></label></cq-item><cq-separator></cq-separator></div><div class="primary-tool-group"><cq-item class="ciq-tool" stxtap="noTool()"><span class="icon pointer"></span><label><translate original="No Tool">No Tool</translate></label></cq-item><cq-item class="ciq-tool" cq-tool="measure" stxtap="tool()"><span class="icon measure"></span><label><translate original="Measure">Measure</translate></label></cq-item><cq-undo class="ciq-tool" cq-active="true"><span class="icon undo"></span><label><translate original="Undo">Undo</translate></label></cq-undo><cq-redo class="ciq-tool"><span class="icon redo"></span><label><translate original="Redo">Redo</translate></label></cq-redo><cq-menu class="ciq-select"><span cq-tool-group-selection=""><translate original="All">All</translate></span><cq-menu-dropdown class="ciq-tool-group-selection ps-container ps-theme-default ps-active-y" data-ps-id="5ec94eb1-5fb0-a806-8797-76f02afd731f" style="overflow-y: auto; max-height: 345.031px;"><cq-item stxtap="setToolGroup(&#39;all&#39;)"><translate original="All">All</translate></cq-item><cq-item stxtap="setToolGroup(&#39;text&#39;)"><translate original="Text">Text</translate></cq-item><cq-item stxtap="setToolGroup(&#39;statistics&#39;)"><translate original="Statistics">Statistics</translate></cq-item><cq-item stxtap="setToolGroup(&#39;technicals&#39;)"><translate original="Technicals">Technicals</translate></cq-item><cq-item stxtap="setToolGroup(&#39;fibonacci&#39;)"><translate original="Fibonacci">Fibonacci</translate></cq-item><cq-item stxtap="setToolGroup(&#39;marking&#39;)"><translate original="Markings">Markings</translate></cq-item><cq-item stxtap="setToolGroup(&#39;line&#39;)"><translate original="Lines">Lines</translate></cq-item><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px; height: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="./saved_resource(7).html"></object></cq-menu-dropdown></cq-menu></div><cq-separator></cq-separator><div class="tool-group" tool-group-filter="all"><cq-scroll cq-no-resize="" class="ps-container ps-theme-default ps-active-y" data-ps-id="a91aabe2-9fca-cb30-af59-6cab00a7b198" style="overflow-y: auto;"><cq-item class="ciq-tool" cq-tool="annotation" cq-tool-group="text" stxtap="tool()"><span class="icon annotation"></span><label><translate original="Annotation">Annotation</translate></label></cq-item><cq-item class="ciq-tool odd" cq-tool="callout" cq-tool-group="text" stxtap="tool()"><span class="icon callout"></span><label><translate original="Callout">Callout</translate></label></cq-item><cq-item class="ciq-tool" cq-tool="average" cq-tool-group="statistics" stxtap="tool()"><span class="icon average"></span><label><translate original="Average Line">Average Line</translate></label></cq-item><cq-item class="ciq-tool odd" cq-tool="channel" cq-tool-group="line" stxtap="tool()"><span class="icon channel"></span><label><translate original="Channel">Channel</translate></label></cq-item><cq-item class="ciq-tool" cq-tool="continuous" cq-tool-group="line" stxtap="tool()"><span class="icon continuous"></span><label><translate original="Continuous">Continuous</translate></label></cq-item><cq-item class="ciq-tool odd" cq-tool="crossline" cq-tool-group="line" stxtap="tool()"><span class="icon crossline"></span><label><translate original="Crossline">Crossline</translate></label></cq-item><cq-item class="ciq-tool" cq-tool="freeform" cq-tool-group="line" stxtap="tool()"><span class="icon freeform"></span><label><translate original="Doodle">Doodle</translate></label></cq-item><cq-item class="ciq-tool odd" cq-tool="ellipse" cq-tool-group="marking" stxtap="tool()"><span class="icon ellipse"></span><label><translate original="Ellipse">Ellipse</translate></label></cq-item><cq-item class="ciq-tool" cq-tool="retracement" cq-tool-group="fibonacci" stxtap="tool()"><span class="icon retracement"></span><label><translate original="Fib Retracement">Fib Retracement</translate></label></cq-item><cq-item class="ciq-tool odd" cq-tool="fibprojection" cq-tool-group="fibonacci" stxtap="tool()"><span class="icon fibprojection"></span><label><translate original="Fib Projection">Fib Projection</translate></label></cq-item><cq-item class="ciq-tool" cq-tool="fibarc" cq-tool-group="fibonacci" stxtap="tool()"><span class="icon fibarc"></span><label><translate original="Fib Arc">Fib Arc</translate></label></cq-item><cq-item class="ciq-tool odd" cq-tool="fibfan" cq-tool-group="fibonacci" stxtap="tool()"><span class="icon fibfan"></span><label><translate original="Fib Fan">Fib Fan</translate></label></cq-item><cq-item class="ciq-tool" cq-tool="fibtimezone" cq-tool-group="fibonacci" stxtap="tool()"><span class="icon fibtimezone"></span><label><translate original="Fib Time Zone">Fib Time Zone</translate></label></cq-item><cq-item class="ciq-tool odd" cq-tool="gannfan" cq-tool-group="technicals" stxtap="tool()"><span class="icon gannfan"></span><label><translate original="Gann Fan">Gann Fan</translate></label></cq-item><cq-item class="ciq-tool" cq-tool="gartley" cq-tool-group="technicals" stxtap="tool()"><span class="icon gartley"></span><label><translate original="Gartley">Gartley</translate></label></cq-item><cq-item class="ciq-tool odd" cq-tool="horizontal" cq-tool-group="line" stxtap="tool()"><span class="icon horizontal"></span><label><translate original="Horizontal">Horizontal</translate></label></cq-item><cq-item class="ciq-tool active" cq-tool="line" cq-tool-group="line" stxtap="tool()"><span class="icon line"></span><label><translate original="Line">Line</translate></label></cq-item><cq-item class="ciq-tool odd" cq-tool="pitchfork" cq-tool-group="technicals" stxtap="tool()"><span class="icon pitchfork"></span><label><translate original="Pitchfork">Pitchfork</translate></label></cq-item><cq-item class="ciq-tool" cq-tool="quadrant" cq-tool-group="statistics" stxtap="tool()"><span class="icon quadrant"></span><label><translate original="Quadrant Lines">Quadrant Lines</translate></label></cq-item><cq-item class="ciq-tool odd" cq-tool="ray" cq-tool-group="line" stxtap="tool()"><span class="icon ray"></span><label><translate original="Ray">Ray</translate></label></cq-item><cq-item class="ciq-tool" cq-tool="rectangle" cq-tool-group="marking" stxtap="tool()"><span class="icon rectangle"></span><label><translate original="Rectangle">Rectangle</translate></label></cq-item><cq-item class="ciq-tool odd" cq-tool="regression" cq-tool-group="statistics" stxtap="tool()"><span class="icon regression"></span><label><translate original="Regression Line">Regression Line</translate></label></cq-item><cq-item class="ciq-tool" cq-tool="segment" cq-tool-group="line" stxtap="tool()"><span class="icon segment"></span><label><translate original="Segment">Segment</translate></label></cq-item><cq-item class="ciq-tool odd" cq-tool="arrow" cq-tool-group="marking" stxtap="tool()"><span class="icon arrow"></span><label><translate original="Arrow">Arrow</translate></label></cq-item><cq-item class="ciq-tool" cq-tool="check" cq-tool-group="marking" stxtap="tool()"><span class="icon check"></span><label><translate original="Check">Check</translate></label></cq-item><cq-item class="ciq-tool odd" cq-tool="xcross" cq-tool-group="marking" stxtap="tool()"><span class="icon xcross"></span><label><translate original="Cross">Cross</translate></label></cq-item><cq-item class="ciq-tool" cq-tool="focusarrow" cq-tool-group="marking" stxtap="tool()"><span class="icon focusarrow"></span><label><translate original="Focus">Focus</translate></label></cq-item><cq-item class="ciq-tool odd" cq-tool="heart" cq-tool-group="marking" stxtap="tool()"><span class="icon heart"></span><label><translate original="Heart">Heart</translate></label></cq-item><cq-item class="ciq-tool" cq-tool="star" cq-tool-group="marking" stxtap="tool()"><span class="icon star"></span><label><translate original="Star">Star</translate></label></cq-item><cq-item class="ciq-tool odd" cq-tool="speedarc" cq-tool-group="technicals" stxtap="tool()"><span class="icon speedarc"></span><label><translate original="Speed Resistance Arc">Speed Resistance Arc</translate></label></cq-item><cq-item class="ciq-tool" cq-tool="speedline" cq-tool-group="technicals" stxtap="tool()"><span class="icon speedline"></span><label><translate original="Speed Resistance Line">Speed Resistance Line</translate></label></cq-item><cq-item class="ciq-tool odd" cq-tool="timecycle" cq-tool-group="technicals" stxtap="tool()"><span class="icon timecycle"></span><label><translate original="Time Cycle">Time Cycle</translate></label></cq-item><cq-item class="ciq-tool" cq-tool="tirone" cq-tool-group="statistics" stxtap="tool()"><span class="icon tirone"></span><label><translate original="Tirone Levels">Tirone Levels</translate></label></cq-item><cq-item class="ciq-tool odd" cq-tool="trendline" cq-tool-group="text" stxtap="tool()"><span class="icon trendline"></span><label><translate original="Trend Line">Trend Line</translate></label></cq-item><cq-item class="ciq-tool" cq-tool="vertical" cq-tool-group="line" stxtap="tool()"><span class="icon vertical"></span><label><translate original="Vertical">Vertical</translate></label></cq-item><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: -200px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 200px; right: 0px; height: 323px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 87px; height: 140px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="./saved_resource(8).html"></object></cq-scroll><cq-separator></cq-separator><cq-item class="ciq-tool" stxtap="clearDrawings()"><span class="icon clear"></span><label><translate original="Clear Drawings">Clear Drawings</translate></label></cq-item><cq-item class="ciq-tool" stxtap="restoreDefaultConfig(true)"><span class="icon restore"></span><label><translate original="Restore Default Parameters">Restore Default Parameters</translate></label></cq-item></div></div><div class="palette-settings"><cq-clickable class="ciq-select ciq-mobile-palette-toggle" stxtap="togglePalette()"><span><translate original="Select Tool">Select Tool</translate></span></cq-clickable><div class="ciq-active-tool-label ciq-heading"><translate original="Line">Line</translate>:</div><cq-toolbar-settings><cq-fill-color cq-section="" class="ciq-color" stxbind="getFillColor()" stxtap="pickFillColor()" style="background: rgb(125, 166, 245);"><span></span></cq-fill-color><div><cq-line-color cq-section="" cq-overrides="auto" class="ciq-color ciq-active" stxbind="getLineColor()" stxtap="pickLineColor()" style="border: 1px solid rgb(0, 0, 0); background: linear-gradient(to right bottom, rgb(0, 0, 0), rgb(0, 0, 0) 49%, rgb(255, 255, 255) 50%, rgb(255, 255, 255));"><span></span></cq-line-color><cq-line-style cq-section="" class="ciq-active"><cq-menu class="ciq-select"><span cq-line-style="" class="ciq-line ciq-selected ciq-solid-1"></span><cq-menu-dropdown class="ciq-line-style-menu ps-container ps-theme-default ps-active-y" data-ps-id="275ac8a5-7e8a-49ee-17ec-c10790b7b413" style="overflow-y: auto; max-height: 482px;"><cq-item stxtap="setLine(1,&#39;solid&#39;)"><span class="ciq-line-style-option ciq-solid-1"></span></cq-item><cq-item stxtap="setLine(3,&#39;solid&#39;)"><span class="ciq-line-style-option ciq-solid-3"></span></cq-item><cq-item stxtap="setLine(5,&#39;solid&#39;)"><span class="ciq-line-style-option ciq-solid-5"></span></cq-item><cq-item stxtap="setLine(1,&#39;dotted&#39;)"><span class="ciq-line-style-option ciq-dotted-1"></span></cq-item><cq-item stxtap="setLine(3,&#39;dotted&#39;)"><span class="ciq-line-style-option ciq-dotted-3"></span></cq-item><cq-item stxtap="setLine(5,&#39;dotted&#39;)"><span class="ciq-line-style-option ciq-dotted-5"></span></cq-item><cq-item stxtap="setLine(1,&#39;dashed&#39;)"><span class="ciq-line-style-option ciq-dashed-1"></span></cq-item><cq-item stxtap="setLine(3,&#39;dashed&#39;)"><span class="ciq-line-style-option ciq-dashed-3"></span></cq-item><cq-item stxtap="setLine(5,&#39;dashed&#39;)"><span class="ciq-line-style-option ciq-dashed-5"></span></cq-item><cq-item stxtap="setLine(0,&#39;none&#39;)" class="ciq-none" style="display: none;"><translate original="None">None</translate></cq-item><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px; height: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="./saved_resource(9).html"></object></cq-menu-dropdown></cq-menu></cq-line-style></div><cq-cvp-controller cq-section="" cq-cvp-header="1" style=""><div cq-section=""><div class="ciq-heading"><translate original="1">1</translate></div><span stxtap="toggleActive()" class="ciq-checkbox"><span></span></span></div><cq-line-color cq-section="" cq-overrides="auto" class="ciq-color ciq-active" stxbind="getColor()" stxtap="pickColor()" style="border: 1px solid rgb(0, 0, 0); background: linear-gradient(to right bottom, rgb(0, 0, 0), rgb(0, 0, 0) 49%, rgb(255, 255, 255) 50%, rgb(255, 255, 255));"><span></span></cq-line-color><cq-line-style cq-section="" class="ciq-active"><cq-menu class="ciq-select"><span cq-cvp-line-style="" class="ciq-line ciq-selected ciq-dotted-1"></span><cq-menu-dropdown class="ciq-line-style-menu ps-container ps-theme-default" data-ps-id="a5dd8826-7ec3-e6a7-dce5-70fd12987e7d" style="overflow-y: auto; max-height: 547px;"><cq-item stxtap="setStyle(1, &#39;solid&#39;)"><span class="ciq-line-style-option ciq-solid-1"></span></cq-item><cq-item stxtap="setStyle(3, &#39;solid&#39;)"><span class="ciq-line-style-option ciq-solid-3"></span></cq-item><cq-item stxtap="setStyle(5, &#39;solid&#39;)"><span class="ciq-line-style-option ciq-solid-5"></span></cq-item><cq-item stxtap="setStyle(1, &#39;dotted&#39;)"><span class="ciq-line-style-option ciq-dotted-1"></span></cq-item><cq-item stxtap="setStyle(3, &#39;dotted&#39;)"><span class="ciq-line-style-option ciq-dotted-3"></span></cq-item><cq-item stxtap="setStyle(5, &#39;dotted&#39;)"><span class="ciq-line-style-option ciq-dotted-5"></span></cq-item><cq-item stxtap="setStyle(1, &#39;dashed&#39;)"><span class="ciq-line-style-option ciq-dashed-1"></span></cq-item><cq-item stxtap="setStyle(3, &#39;dashed&#39;)"><span class="ciq-line-style-option ciq-dashed-3"></span></cq-item><cq-item stxtap="setStyle(5, &#39;dashed&#39;)"><span class="ciq-line-style-option ciq-dashed-5"></span></cq-item><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="about:blank"></object></cq-menu-dropdown></cq-menu></cq-line-style></cq-cvp-controller><cq-cvp-controller cq-section="" cq-cvp-header="2" style=""><div cq-section=""><div class="ciq-heading"><translate original="2">2</translate></div><span stxtap="toggleActive()" class="ciq-checkbox"><span></span></span></div><cq-line-color cq-section="" cq-overrides="auto" class="ciq-color ciq-active" stxbind="getColor()" stxtap="pickColor()" style="border: 1px solid rgb(0, 0, 0); background: linear-gradient(to right bottom, rgb(0, 0, 0), rgb(0, 0, 0) 49%, rgb(255, 255, 255) 50%, rgb(255, 255, 255));"><span></span></cq-line-color><cq-line-style cq-section="" class="ciq-active"><cq-menu class="ciq-select"><span cq-cvp-line-style="" class="ciq-line ciq-selected ciq-dotted-1"></span><cq-menu-dropdown class="ciq-line-style-menu ps-container ps-theme-default" data-ps-id="9850675a-42a0-0259-f7d9-2649cc438749" style="overflow-y: auto; max-height: 547px;"><cq-item stxtap="setStyle(1, &#39;solid&#39;)"><span class="ciq-line-style-option ciq-solid-1"></span></cq-item><cq-item stxtap="setStyle(3, &#39;solid&#39;)"><span class="ciq-line-style-option ciq-solid-3"></span></cq-item><cq-item stxtap="setStyle(5, &#39;solid&#39;)"><span class="ciq-line-style-option ciq-solid-5"></span></cq-item><cq-item stxtap="setStyle(1, &#39;dotted&#39;)"><span class="ciq-line-style-option ciq-dotted-1"></span></cq-item><cq-item stxtap="setStyle(3, &#39;dotted&#39;)"><span class="ciq-line-style-option ciq-dotted-3"></span></cq-item><cq-item stxtap="setStyle(5, &#39;dotted&#39;)"><span class="ciq-line-style-option ciq-dotted-5"></span></cq-item><cq-item stxtap="setStyle(1, &#39;dashed&#39;)"><span class="ciq-line-style-option ciq-dashed-1"></span></cq-item><cq-item stxtap="setStyle(3, &#39;dashed&#39;)"><span class="ciq-line-style-option ciq-dashed-3"></span></cq-item><cq-item stxtap="setStyle(5, &#39;dashed&#39;)"><span class="ciq-line-style-option ciq-dashed-5"></span></cq-item><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="about:blank"></object></cq-menu-dropdown></cq-menu></cq-line-style></cq-cvp-controller><cq-cvp-controller cq-section="" cq-cvp-header="3" style=""><div cq-section=""><div class="ciq-heading"><translate original="3">3</translate></div><span stxtap="toggleActive()" class="ciq-checkbox"><span></span></span></div><cq-line-color cq-section="" cq-overrides="auto" class="ciq-color ciq-active" stxbind="getColor()" stxtap="pickColor()" style="border: 1px solid rgb(0, 0, 0); background: linear-gradient(to right bottom, rgb(0, 0, 0), rgb(0, 0, 0) 49%, rgb(255, 255, 255) 50%, rgb(255, 255, 255));"><span></span></cq-line-color><cq-line-style cq-section="" class="ciq-active"><cq-menu class="ciq-select"><span cq-cvp-line-style="" class="ciq-line ciq-selected ciq-dotted-1"></span><cq-menu-dropdown class="ciq-line-style-menu ps-container ps-theme-default" data-ps-id="8af96029-9cc1-9362-b78f-e5b992b0f683" style="overflow-y: auto; max-height: 547px;"><cq-item stxtap="setStyle(1, &#39;solid&#39;)"><span class="ciq-line-style-option ciq-solid-1"></span></cq-item><cq-item stxtap="setStyle(3, &#39;solid&#39;)"><span class="ciq-line-style-option ciq-solid-3"></span></cq-item><cq-item stxtap="setStyle(5, &#39;solid&#39;)"><span class="ciq-line-style-option ciq-solid-5"></span></cq-item><cq-item stxtap="setStyle(1, &#39;dotted&#39;)"><span class="ciq-line-style-option ciq-dotted-1"></span></cq-item><cq-item stxtap="setStyle(3, &#39;dotted&#39;)"><span class="ciq-line-style-option ciq-dotted-3"></span></cq-item><cq-item stxtap="setStyle(5, &#39;dotted&#39;)"><span class="ciq-line-style-option ciq-dotted-5"></span></cq-item><cq-item stxtap="setStyle(1, &#39;dashed&#39;)"><span class="ciq-line-style-option ciq-dashed-1"></span></cq-item><cq-item stxtap="setStyle(3, &#39;dashed&#39;)"><span class="ciq-line-style-option ciq-dashed-3"></span></cq-item><cq-item stxtap="setStyle(5, &#39;dashed&#39;)"><span class="ciq-line-style-option ciq-dashed-5"></span></cq-item><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="about:blank"></object></cq-menu-dropdown></cq-menu></cq-line-style></cq-cvp-controller><template cq-cvp-controller=""></template><!-- <cq-axis-label cq-section>
+							<div class="ciq-heading">Axis Label:</div>
+							<span stxtap="toggleAxisLabel()" class="ciq-checkbox ciq-active"><span></span></span>
+						</cq-axis-label>
+						<cq-annotation cq-section>
+							<cq-annotation-italic stxtap="toggleFontStyle('italic')" class="ciq-btn" style="font-style:italic;">I</cq-annotation-italic>
+							<cq-annotation-bold stxtap="toggleFontStyle('bold')" class="ciq-btn" style="font-weight:bold;">B</cq-annotation-bold>
+							<cq-menu class="ciq-select">
+								<span cq-font-size>12px</span>
+								<cq-menu-dropdown class="ciq-font-size">
+									<cq-item stxtap="setFontSize('8px')">8</cq-item>
+									<cq-item stxtap="setFontSize('10px')">10</cq-item>
+									<cq-item stxtap="setFontSize('12px')">12</cq-item>
+									<cq-item stxtap="setFontSize('13px')">13</cq-item>
+									<cq-item stxtap="setFontSize('14px')">14</cq-item>
+									<cq-item stxtap="setFontSize('16px')">16</cq-item>
+									<cq-item stxtap="setFontSize('20px')">20</cq-item>
+									<cq-item stxtap="setFontSize('28px')">28</cq-item>
+									<cq-item stxtap="setFontSize('36px')">36</cq-item>
+									<cq-item stxtap="setFontSize('48px')">48</cq-item>
+									<cq-item stxtap="setFontSize('64px')">64</cq-item>
+								</cq-menu-dropdown>
+							</cq-menu>
+							<cq-menu class="ciq-select">
+								<span cq-font-family>Default</span>
+								<cq-menu-dropdown class="ciq-font-family">
+									<cq-item stxtap="setFontFamily('Default')">Default</cq-item>
+									<cq-item stxtap="setFontFamily('Helvetica')">Helvetica</cq-item>
+									<cq-item stxtap="setFontFamily('Courier')">Courier</cq-item>
+									<cq-item stxtap="setFontFamily('Garamond')">Garamond</cq-item>
+									<cq-item stxtap="setFontFamily('Palatino')">Palatino</cq-item>
+									<cq-item stxtap="setFontFamily('Times New Roman')">Times New Roman</cq-item>
+								</cq-menu-dropdown>
+							</cq-menu>
+						</cq-annotation> --><cq-clickable cq-fib-settings="" cq-selector="cq-fib-settings-dialog" cq-method="open" cq-section=""><span class="ciq-btn"><translate original="Settings">Settings</translate></span></cq-clickable><div class="ciq-drawing-edit-only" cq-section=""><div cq-toolbar-action="done_edit" stxtap="DrawingEdit.endEdit(&#39;close&#39;)" cq-section=""><cq-tooltip><translate original="Done Editing">Done Editing</translate></cq-tooltip></div></div><div class="ciq-drawing-edit-hidden" cq-section=""><div cq-toolbar-action="save" stxtap="saveConfig()" cq-section="" class="ciq-active"><div cq-toolbar-dirty="" class=""></div><cq-tooltip><translate original="Save Config">Save Config</translate></cq-tooltip></div><div cq-toolbar-action="restore" stxtap="restoreDefaultConfig()" cq-section=""><cq-tooltip><translate original="Restore Config">Restore Config</translate></cq-tooltip></div></div></cq-toolbar-settings><cq-measure><span class="mMeasure"></span></cq-measure></div></cq-drawing-palette><div class="chartContainer" style="height: 461px; top: 41px; left: 91px; width: 1275px;"><stx-hu-tooltip><stx-hu-tooltip-field field="DT"><stx-hu-tooltip-field-name><translate original="Date/Time">Date/Time</translate></stx-hu-tooltip-field-name><stx-hu-tooltip-field-value></stx-hu-tooltip-field-value></stx-hu-tooltip-field><stx-hu-tooltip-field field="Close"><stx-hu-tooltip-field-name></stx-hu-tooltip-field-name><stx-hu-tooltip-field-value></stx-hu-tooltip-field-value></stx-hu-tooltip-field></stx-hu-tooltip><!--- Here is an example of how to create a study legend on the chart.
+						We use the cq-marker attribute to ensure that it floats inside the chart.
+						We set the optional cq-panel-only attribute so that only studies from this panel are displayed.
+						We set the optional cq-clone-to-panels attribute to create a legend on each panel.
+						This legend shows both studies and comparisons, so we set attribute cq-content-keys accordingly.
+						-- Comment out if a legend on the chart window is not desired --
+					--><cq-study-legend cq-clone-to-panels="Plots" cq-panel-only="" cq-content-keys="cq-label,cq-comparison-label" style="display: none;"><cq-comparison cq-show="true"><cq-comparison-key cq-panel-only="" cq-all-series=""><template cq-comparison-item=""></template></cq-comparison-key></cq-comparison><template cq-study-legend=""></template></cq-study-legend><cq-loader style="display: none;"></cq-loader><span class="stx-btn stx_annotation_save annotationSave" style="display: none; top: 429px; left: 341px;"><translate original="save">save</translate></span><span class="stx-btn stx_annotation_cancel annotationCancel" style="display: none; margin-left: 10px; top: 429px; left: 391px;"><translate original="cancel">cancel</translate></span><div class="stx_sticky mSticky" style="display: none; top: 218px; right: 606px;"> <span class="mStickyInterior" style="display: inline-block;"></span> <span class="mStickyRightClick rightclick_drawing"><span class="overlayEdit stx-btn" style="display:none"><span>&nbsp;</span></span> <span class="overlayTrashCan stx-btn" style="display:none"><span>&nbsp;</span></span> <span class="mouseDeleteInstructions" style="display: none;"><span><translate original="(">(</translate></span><span class="mouseDeleteText"><translate original="right-click to delete">right-click to delete</translate></span><span class="mouseManageText"><translate original="right-click to manage">right-click to manage</translate></span><span><translate original=")">)</translate></span></span></span><span class="stickyLongPressText" style="display: none;"><translate original="(long-press to drag)">(long-press to drag)</translate></span></div><div class="stx_draw_ok drawOk" style="display: none;"><div class="icon"></div><div class="field"></div></div><div class="stx_drag_ok dragOk" style="display: none;"><div class="icon"></div><div class="field"></div></div><div class="stx_crosshair_x crossX stx_crosshair" style="left: 1191px; display: none;"></div><div class="stx_crosshair_y crossY stx_crosshair" style="top: 504px; left: 0px; width: 1309px; display: none;"></div><div class="stx_chart_controls chartControls" style="display: block; bottom: 42px;"><div class="chartSize"><span class="stx-zoom-out"></span><span class="stx-zoom-in"></span></div></div><div class="stx_jump_today home" style="display: none; bottom: 42px; margin-right: 50px;"><span></span></div><div class="stx-float-date floatDate" style="left: 1151.5px; bottom: 0px; visibility: hidden;">7/1/2022</div><div class="stx-ico-handle handleTemplate" style="display: none;"><span></span></div><div class="stx-panel-control iconsTemplate"><div class="stx-panel-title"></div><div class="stx-panel-legend"></div><div class="stx-btn-panel"><span class="stx-ico-up"></span></div><div class="stx-btn-panel"><span class="stx-ico-focus"></span></div><div class="stx-btn-panel"><span class="stx-ico-down"></span></div><div class="stx-btn-panel"><span class="stx-ico-edit"></span></div><div class="stx-btn-panel"><span class="stx-ico-close"></span></div></div><div class="stx-baseline-handle baselineHandle" style="display: none;"></div><div class="stx-holder stx-panel-chart" style="right: 0px; top: 0px; left: 0px; height: 461px; display: block;"><div class="stx-subholder" style="z-index: 1; left: 0px; width: 1316px; top: 0px; height: 431px;"><div class="stx-panel-control iconsTemplate stx-show stx-chart-panel"><div class="stx-panel-title chart-title"><translate original="RELIANCE">RELIANCE</translate></div><div class="stx-panel-legend"></div><div class="stx-btn-panel"><span class="stx-ico-up"></span></div><div class="stx-btn-panel"><span class="stx-ico-focus"></span></div><div class="stx-btn-panel"><span class="stx-ico-down"></span></div><div class="stx-btn-panel"><span class="stx-ico-edit"></span></div><div class="stx-btn-panel stx-show" style="display: none;"><span class="stx-ico-close"></span></div></div><cq-chart-title cq-marker="" cq-browser-tab="" class="stx-show" style="top: auto;"><!-- <cq-symbol></cq-symbol> --><cq-symbol-description><translate original="RELIANCE">RELIANCE</translate></cq-symbol-description><span id="expand_symbol" class="expand-symbol" onclick="expandSymbol()"></span><!-- <cq-chart-price>
+						<cq-current-price cq-animate></cq-current-price>
+						<cq-change>
+							<div class="ico"></div>
+							<cq-todays-change></cq-todays-change> (
+							<cq-todays-change-pct></cq-todays-change-pct>)
+						</cq-change>
+					</cq-chart-price> --></cq-chart-title><cq-comparison cq-marker="" id="chart_compare" cq-show="true" style="top: auto;"><cq-menu class="cq-comparison-new"><cq-comparison-add-label class="ciq-no-share"><cq-comparison-plus></cq-comparison-plus><span><translate original="Compare">Compare</translate></span><span><translate original="...">...</translate></span></cq-comparison-add-label><cq-comparison-add><cq-comparison-lookup-frame><cq-lookup cq-keystroke-claim="" cq-uppercase=""><cq-lookup-input cq-no-close=""><input type="text" cq-focus="" spellcheck="off" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Search instrument"><cq-lookup-icon></cq-lookup-icon></cq-lookup-input><cq-lookup-results><cq-lookup-filters cq-no-close=""><cq-filter class="true"><translate original="ALL">ALL</translate></cq-filter><cq-filter><translate original="NSE">NSE</translate></cq-filter><cq-filter><translate original="BSE">BSE</translate></cq-filter><cq-filter><translate original="NFO">NFO</translate></cq-filter><cq-filter><translate original="CDS">CDS</translate></cq-filter><cq-filter><translate original="MCX">MCX</translate></cq-filter></cq-lookup-filters><cq-scroll class="ps-container ps-theme-default" data-ps-id="59d18489-778f-7b73-37b9-feede9ac70d9" style="overflow-y: auto; height: 547px; max-height: 547px;"><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="about:blank"></object></cq-scroll></cq-lookup-results></cq-lookup></cq-comparison-lookup-frame><cq-swatch cq-no-close="" style="background-color: rgb(142, 198, 72);"></cq-swatch><span><cq-accept-btn class="stx-btn"><translate original="ADD">ADD</translate></cq-accept-btn></span></cq-comparison-add></cq-menu></cq-comparison><cq-attrib-container style="top: auto;"><cq-attrib-source></cq-attrib-source><img src="./logo.svg"><cq-attrib-quote-type></cq-attrib-quote-type></cq-attrib-container></div><div class="tfc drag-price-line red" style="display:none;">
+      <div class="drag-line"></div>
+      <div class="drag-price">
+        <div class="tfc-price-arrow"><span></span> </div>
+        <div class="tfc-price"></div>
+      </div>
+    </div><div class="tfc drag-price-line red" style="display:none;">
+      <div class="drag-line"></div>
+      <div class="drag-price">
+        <div class="tfc-price-arrow"><span></span> </div>
+        <div class="tfc-price"></div>
+      </div>
+    </div><div class="tfc drag-price-line red" style="display:none;">
+      <div class="drag-line"></div>
+      <div class="drag-price">
+        <div class="tfc-price-arrow"><span></span> </div>
+        <div class="tfc-price"></div>
+      </div>
+    </div><div class="tfc create-order market-order" style="display:none;">    
+      <!--  remove display:none if you want to have a floating 'x' button to close the Market Orders overlay -->
+      <div onclick="" class="stx-btn stx-ico" style="display:none; top:-21px"><span class="stx-ico-close"></span></div>      
+      <div class="tfc-market-section">
+	    <div class="col1 tfc-market-buy-action">
+	      <div class="click tfc-buy" onclick=""> 
+	        <div class="stx-ico-up"></div>
+	        <span class="tfc-click-label"><translate original="Proceed">Proceed</translate></span>
+	        <span class="tfc-ask"><span></span><strong><sup></sup></strong></span>
+	      </div>
+	    </div>
+	    <div class="col2">
+	      <div class="inputTemplate">
+	        <div class="stx-data">
+	          <input type="text" class="tfc-shares stx-input-field" value="" placeholder="">
+	        </div>
+	        <div class="stx-label tfc-shares-to-buy"><translate original="Qty.">Qty.</translate></div>
+	        <div class="stx-label tfc-qty-to-buy"><translate original="Units">Units</translate></div>
+	      </div>
+	      <div class="inputTemplate amount">
+	        <div class="stx-data">
+	          <input type="text" class="tfc-currency stx-input-field" value="" placeholder="">
+	        </div>
+	        <div class="stx-label tfc-price-dollars"><translate original="Value">Value</translate></div>
+	        <div class="stx-label tfc-price-amt"><translate original="Amount">Amount</translate></div>
+	      </div>
+	    </div>
+        <div class="col3 tfc-market-sell-action">
+          <div class="click tfc-sell" onclick=""> 
+            <div class="stx-ico-down"></div>
+            <span class="tfc-click-label"><translate original="Proceed">Proceed</translate></span>
+            <span class="tfc-bid"><span></span><strong><sup></sup></strong></span>
+          </div>
+        </div>
+	  </div>
+      
+      <div class="tfc-market-section complex" style="display:none;">
+        <div class="wrapper">
+      
+         <div class="col1">
+            <div class="stx-head stop-loss-label"></div>
+            <div class="stx-data">
+              <input type="text" class="tfc-market-loss-bracket stx-input-field" value="" placeholder="">
+            </div>
+            <div class="stx-label tfc-pips"><translate original="pips">pips</translate></div>
+            <div class="stx-label tfc-points"><translate original="points">points</translate></div>
+         </div>
+           
+         <div class="col2">
+            <div class="stx-head take-profit-label"></div>
+            <div class="stx-data">
+               <input type="text" class="tfc-market-profit-bracket stx-input-field" value="" placeholder="">
+            </div>
+            <div class="stx-label tfc-pips"><translate original="pips">pips</translate></div>
+            <div class="stx-label tfc-points"><translate original="points">points</translate></div>
+         </div>
+       
+       </div>
+      </div>  
+    </div><div class="tfc create-order stx-limit-order new-buy-order" style="display:none;">
+        <div class="tfc-cancel-header"><translate original="Modify ">Modify </translate><span class="tfc-cancel-description"><translate original="Sell 1000 qty. @197.00">Sell 1000 qty. @197.00</translate></span></div>
+        <div onclick="" class="stx-btn stx-ico"><span class="stx-ico-close"></span></div>
+        <div class="stx-data">
+          <div class="col1">
+            <div class="inputTemplate">
+              <label class="su-label"><translate original="Product">Product</translate></label>
+              <select class="stx-select">
+                <option class="tfc-cnc" value="CNC"><translate original="CNC">CNC</translate></option>
+                <option class="tfc-nrml" value="NRML"><translate original="NRML">NRML</translate></option>
+                <option class="tfc-mis" value="MIS"><translate original="MIS">MIS</translate></option>
+              </select>
+            </div>
+          </div>
+          <div class="col2">
+            <div class="inputTemplate">
+            <div class="stx-data">
+              <label class="su-label"><translate original="Qty.">Qty.</translate></label>
+              <input min="1" step="1" type="number" id="tfc_qty_input" class="tfc-shares stx-input-field" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="off" placeholder="" value="1">
+            </div>
+            <div class="stx-label tfc-shares-owned"><translate original="of ">of </translate><span></span></div>
+            <div class="stx-label tfc-shares-to-buy"><span><translate original="Qty.">Qty.</translate></span></div>
+            <div class="stx-label tfc-qty-to-buy"><translate original="Units">Units</translate></div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="stx-data">
+          <div class="col1 su-switch-grp">
+            <span class="b-switch"><translate original="Buy">Buy</translate></span>
+            <input id="buy-sell-switch" type="checkbox">
+            <label for="buy-sell-switch" class="su-switch"></label>
+            <span class="s-switch"><translate original="Sell">Sell</translate></span>
+          </div>
+          <div class="col2" style="display: none;">
+          <div class="inputTemplate amount">
+            <div class="stx-data">
+              <input type="number" class="tfc-currency stx-input-field" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="off" placeholder="">
+            </div>
+            <div class="stx-label tfc-price-dollars"><translate original="Value">Value</translate></div>
+            <div class="stx-label tfc-price-amt"><translate original="Amount">Amount</translate></div>
+          </div>
+          <div class="inputTemplate gain">
+            <div class="stx-data tfc-gain-amount"></div>
+            <div class="stx-data tfc-gain-percent"></div>
+          </div>
+           <div class="inputTemplate OTO stop" style="display: none;"> <a><span class="stx-ico"></span><translate original="Add Stop Loss">Add Stop Loss</translate></a> </div>
+          <div class="inputTemplate OTO limit"> <a><span class="stx-ico"></span><translate original="Add Take Profit">Add Take Profit</translate></a> </div>
+          <div class="inputTemplate risk-reward">
+            <div class="stx-data"></div>
+            <div class="stx-label"><translate original="Rsk/Rwrd">Rsk/Rwrd</translate></div>
+          </div>
+        </div>
+        <div class="col2">
+          <div class="click tfc-buy"><translate original="Buy">Buy</translate></div>
+          <div class="click tfc-sell"><translate original="Sell">Sell</translate></div>
+          <div class="click tfc-short"><translate original="Proceed">Proceed</translate></div>
+          <div class="click tfc-cover"><translate original="Cover">Cover</translate></div>
+          <div class="click tfc-replace"><translate original="Modify">Modify</translate></div>
+        </div>
+        <div class="col1 tfc-cancel-button click stx-btn"><translate original="Cancel">Cancel</translate></div>
+        </div>
+        <span class="tfc-info"><translate original="Drag this window to set price">Drag this window to set price</translate></span>
+        <span class="tfc-error"></span>
+      <div class="arrow"><span></span></div>
+    </div><div class="tfc create-order OTO stx-stop" style="display:none;">
+      <div class="stx-btn stx-ico"><span class="stx-ico-close"></span></div>
+      <div class="col1 OTO">
+        <div class="stx-head tfc-oto-leg-label"></div>
+      </div>
+      <div class="col2">
+          <div class="stx-data tfc-gain-percent"><translate original="0%">0%</translate></div>
+      </div>
+      <div class="col3">
+          <div class="stx-data tfc-gain-amount">&nbsp;</div>
+      </div>
+      <div class="stx-data trailing" style="display:none;"><span class="click"><translate original="Make Trailing">Make Trailing</translate></span></div><!-- implement trailing stops in the future as a toggle, with percent or amount conditions -->
+    </div><div class="tfc create-order OTO stx-stop" style="display:none;">
+      <div class="stx-btn stx-ico"><span class="stx-ico-close"></span></div>
+      <div class="col1 OTO">
+        <div class="stx-head tfc-oto-leg-label"></div>
+      </div>
+      <div class="col2">
+          <div class="stx-data tfc-gain-percent"><translate original="0%">0%</translate></div>
+      </div>
+      <div class="col3">
+          <div class="stx-data tfc-gain-amount">&nbsp;</div>
+      </div>
+      <div class="stx-data trailing" style="display:none;"><span class="click"><translate original="Make Trailing">Make Trailing</translate></span></div><!-- implement trailing stops in the future as a toggle, with percent or amount conditions -->
+    </div><div class="tfc create-order stx-oco-order" style="display:none;">
+      <div class="stx-btn stx-ico"><span class="stx-ico-close"></span></div>
+      <div class="col1">
+        <div class="inputTemplate">
+          <div class="stx-data">
+            <input type="text" value="" class="stx-input-field" placeholder="">
+          </div>
+	        <div class="stx-label tfc-price-dollars"><translate original="Value">Value</translate></div>
+	        <div class="stx-label tfc-price-amt"><translate original="Amount">Amount</translate></div>
+        </div>
+		<div class="stx-data">
+			<select class="stx-select">
+				<!-- <option class="tfc-day" value="CNC" selected>CNC</option>
+				<option class="tfc-nrml" value="NRML" selected>NRML2</option>
+				<option value="MIS">MIS</option> -->
+			</select>
+		</div>
+      </div>
+      <div class="col2">
+        <div class="click oco"><translate original="Order">Order</translate></div>
+      </div>
+      <input type="hidden" value="" class="tfc-bracketid">
+    </div><div class="tfc create-order oco tfc-oco-above" style="display:none;">
+      <div class="stx-head"><translate original="Take Profit">Take Profit</translate></div>
+      <div class="stx-data"><span></span><translate original=" Qty."> Qty.</translate></div>
+    </div><div class="tfc create-order oco tfc-oco-below" style="display:none;">
+      <div class="stx-head"><translate original="Take Profit">Take Profit</translate></div>
+      <div class="stx-data"><span></span><translate original=" Qty."> Qty.</translate></div>
+    </div><div class="tfc tfc-shade" style="display:none">
+    </div><div class="tfc tfc-shade" style="display:none">
+    </div></div><div class="stx-ico-handle handleTemplate" style="display: none; left: 0px; width: 1316px;"><span></span></div><canvas style="position: absolute; left: 0px; width: 1366px; height: 461px;" height="461" width="1366"></canvas><canvas style="position: absolute; left: 0px; display: none; width: 1366px; height: 461px;" height="461" width="1366"></canvas><canvas style="position: absolute; left: 0px; display: none; width: 1366px; height: 461px;" height="461" width="1366"></canvas></div><!-- End Chart Container --></div><div class="ciq-chart" style="height: 95px; padding-top: 5px; display: none;"><div class="chartContainer" style="height: 100%; cursor: ew-resize; background-color: rgb(255, 255, 255);"><span class="stx-btn stx_annotation_save annotationSave" style="display: none;"><translate original="save">save</translate></span><span class="stx-btn stx_annotation_cancel annotationCancel" style="display: none; margin-left:10px;"><translate original="cancel">cancel</translate></span><div class="stx_sticky mSticky"> <span class="mStickyInterior"></span> <span class="mStickyRightClick"><span class="overlayEdit stx-btn" style="display:none"><span>&nbsp;</span></span> <span class="overlayTrashCan stx-btn" style="display:none"><span>&nbsp;</span></span> <span class="mouseDeleteInstructions"><span><translate original="(">(</translate></span><span class="mouseDeleteText"><translate original="right-click to delete">right-click to delete</translate></span><span class="mouseManageText"><translate original="right-click to manage">right-click to manage</translate></span><span><translate original=")">)</translate></span></span></span><span class="stickyLongPressText"><translate original="(long-press to drag)">(long-press to drag)</translate></span></div><div class="stx_draw_ok drawOk"><div class="icon"></div><div class="field"></div></div><div class="stx_drag_ok dragOk"><div class="icon"></div><div class="field"></div></div><div class="stx_crosshair stx_crosshair_x crossX" style="display: none;"></div><div class="stx_crosshair stx_crosshair_y crossY" style="display: none;"></div><div class="stx_chart_controls chartControls" style="display: none; bottom: 42px;"><div class="chartSize"><span class="stx-zoom-out"></span><span class="stx-zoom-in"></span></div></div><div class="stx_jump_today home" style="display: none; width: 0px; bottom: 42px; margin-right: 50px;"><span></span></div><div class="stx-float-date floatDate" style="visibility: hidden; left: 0px; bottom: 0px;"></div><div class="stx-ico-handle handleTemplate" style="display: none;"><span></span></div><div class="stx-panel-control iconsTemplate"><div class="stx-panel-title"></div><div class="stx-panel-legend"></div><div class="stx-btn-panel"><span class="stx-ico-up"></span></div><div class="stx-btn-panel"><span class="stx-ico-focus"></span></div><div class="stx-btn-panel"><span class="stx-ico-down"></span></div><div class="stx-btn-panel"><span class="stx-ico-edit"></span></div><div class="stx-btn-panel"><span class="stx-ico-close"></span></div></div><div class="stx-baseline-handle baselineHandle" style="display: none;"></div><div class="stx-holder stx-panel-chart" style="right: 0px; top: 0px; left: 0px; height: 0px;"><div class="stx-subholder" style="z-index: 1; left: 0px; width: 0px; top: 0px;"><div class="stx-panel-control iconsTemplate stx-show stx-chart-panel"><div class="stx-panel-title chart-title"></div><div class="stx-panel-legend"></div><div class="stx-btn-panel"><span class="stx-ico-up"></span></div><div class="stx-btn-panel"><span class="stx-ico-focus"></span></div><div class="stx-btn-panel"><span class="stx-ico-down"></span></div><div class="stx-btn-panel"><span class="stx-ico-edit"></span></div><div class="stx-btn-panel" style="display: none;"><span class="stx-ico-close"></span></div></div></div></div><div class="stx-ico-handle handleTemplate" style="display: none; left: 0px;"><span></span></div><canvas style="position: absolute; left: 0px; width: 0px; height: 0px;" height="0" width="0"></canvas><canvas style="position: absolute; left: 0px; display: none; width: 0px; height: 0px;" height="0" width="0"></canvas><canvas style="position: absolute; left: 0px; display: none; width: 0px; height: 0px;" height="0" width="0"></canvas></div></div><!-- End Chart Box --></div><!-- End Chart Area --><!-- Markers/Events --><div class="stx-marker-templates" style="left: -1000px"><translate original="Abstract Markers. You can remove this unless you actually need a helicopter. Seriously though, markers can be anything you want them to be!">Abstract Markers. You can remove this unless you actually need a helicopter. Seriously though, markers can be anything you want them to be!</translate><div class="abstract"><div class="stx-marker abstract"><div class="stx-marker-content"><div class="sample"><div id="stage"><div id="helicopter"><div id="propeller" style="height: 160px;"><div id="spinner" style="-webkit-transform-origin: 40px 0 0; transform-origin: 40px 0 0;"><div style="-webkit-transform: rotateY(0deg) translateX(40px); transform: rotateY(0deg) translateX(40px);"></div><div style="-webkit-transform: rotateY(-90deg) translateX(40px); transform: rotateY(-90deg) translateX(40px);"></div><div style="-webkit-transform: rotateY(-180deg) translateX(40px); transform: rotateY(-180deg) translateX(40px);"></div><div style="-webkit-transform: rotateY(-270deg) translateX(40px); transform: rotateY(-270deg) translateX(40px);"></div></div></div><div id="heli-body"></div></div></div><div class="text"><translate original="This is an example of a complex marker which can contain html, video, images, css, and animations.">This is an example of a complex marker which can contain html, video, images, css, and animations.</translate></div></div></div></div></div></div><!-- End Marker/Events --><!-- Attribution component --><cq-attribution><template></template></cq-attribution><div class="ciq-footer"><cq-share-button><!-- <div stxtap="tap();">Share</div> --></cq-share-button><!--<div class="ciq-btn ciq-primary">Share!</div>--><cq-show-range><div stxtap="set(1,&#39;today&#39;);"><translate original="1D">1D</translate></div><div stxtap="set(5,&#39;day&#39;,30,2,&#39;minute&#39;);"><translate original="5D">5D</translate></div><div stxtap="set(1,&#39;month&#39;,30,8,&#39;minute&#39;);"><translate original="1M">1M</translate></div><div class="hide-sm" stxtap="set(3,&#39;month&#39;);"><translate original="3M">3M</translate></div><div class="hide-sm" stxtap="set(6,&#39;month&#39;);"><translate original="6M">6M</translate></div><div class="hide-sm" stxtap="set(1,&#39;YTD&#39;);"><translate original="YTD">YTD</translate></div><div stxtap="set(1,&#39;year&#39;);"><translate original="1Y">1Y</translate></div><!-- <div class="hide-sm" stxtap="set(5,'year',1,1,'week');">5Y</div> --><div class="hide-sm" stxtap="set(1,&#39;all&#39;);"><translate original="All">All</translate></div></cq-show-range></div><!-- End Footer --><cq-dialog style="top: 107.333px; left: 553px;"><cq-view-dialog><h4><translate original="Save View">Save View</translate></h4><div stxtap="close()" class="ciq-icon ciq-close"></div><div style="text-align:center;margin-top:10px;"><i><translate original="Enter name of view:">Enter name of view:</translate></i><p><input spellcheck="false" autocapitalize="off" autocorrect="off" autocomplete="off" maxlength="40" placeholder="Name"><br></p><span class="ciq-btn" stxtap="save()"><translate original="Save">Save</translate></span></div></cq-view-dialog></cq-dialog><cq-dialog style="top: 41px; left: 553px;"><cq-aggregation-dialog><h4 class="title"></h4><div stxtap="hide()" class="ciq-icon ciq-close"></div><div style="text-align:center;margin-top:10px;"><div class="ciqkagi"><i><translate original="Enter value and hit &quot;Enter&quot;">Enter value and hit "Enter"</translate></i><p><input name="kagi" stxtap="Layout.setAggregationEdit(&#39;kagi&#39;)"></p></div><div class="ciqrenko"><i><translate original="Enter value and hit &quot;Enter&quot;">Enter value and hit "Enter"</translate></i><p><input name="renko" stxtap="Layout.setAggregationEdit(&#39;renko&#39;)"></p></div><div class="ciqlinebreak"><i><translate original="Enter value and hit &quot;Enter&quot;">Enter value and hit "Enter"</translate></i><p><input name="priceLines" stxtap="Layout.setAggregationEdit(&#39;priceLines&#39;)"></p></div><div class="ciqrangebars"><i><translate original="Enter value and hit &quot;Enter&quot;">Enter value and hit "Enter"</translate></i><p><input name="range" stxtap="Layout.setAggregationEdit(&#39;rangebars&#39;)"></p></div><div class="ciqpandf"><i><translate original="Enter box size and hit &quot;Enter&quot;">Enter box size and hit "Enter"</translate></i><p><input name="box" stxtap="Layout.setAggregationEdit(&#39;pandf.box&#39;)"></p><p><i><translate original="Enter reversal and hit &quot;Enter&quot;">Enter reversal and hit "Enter"</translate></i></p><p><input name="reversal" stxtap="Layout.setAggregationEdit(&#39;pandf.reversal&#39;)"></p></div><p><translate original="or">or</translate></p><p></p><div class="ciq-btn" stxtap="Layout.setAggregationEdit(&#39;auto&#39;)"><translate original="Auto Select">Auto Select</translate></div></div></cq-aggregation-dialog></cq-dialog><cq-dialog style="top: 99.8333px; left: 553px;"><cq-drawing-context><div stxtap="DrawingEdit.text()" cq-edit-text=""><translate original="Edit Text">Edit Text</translate></div><div stxtap="DrawingEdit.edit()"><translate original="Edit Settings">Edit Settings</translate></div><div stxtap="DrawingEdit.clone()"><translate original="Clone Drawing">Clone Drawing</translate></div><cq-menu stxtap="resize()" cq-close-top="cq-dialog[cq-drawing-context]"><cq-menu-dropdown cq-no-scroll="true" class="context-menu-right"><cq-item stxtap="DrawingEdit.reorderLayer(&#39;top&#39;)"><translate original="Bring to Top">Bring to Top</translate></cq-item><cq-item stxtap="DrawingEdit.reorderLayer(&#39;up&#39;)"><translate original="Bring Forward">Bring Forward</translate></cq-item><cq-item stxtap="DrawingEdit.reorderLayer(&#39;down&#39;)"><translate original="Send Backward">Send Backward</translate></cq-item><cq-item stxtap="DrawingEdit.reorderLayer(&#39;bottom&#39;)"><translate original="Send to Bottom">Send to Bottom</translate></cq-item></cq-menu-dropdown><!-- element here so that <cq-menu-dropdown> can keep "top: auto;" --><div><translate original="Layer Management">Layer Management</translate><div class="context-button-right-arrow"></div></div></cq-menu><div stxtap="DrawingEdit.remove()"><translate original="Delete Drawing">Delete Drawing</translate></div></cq-drawing-context></cq-dialog><cq-dialog style="top: 140.333px; left: 553px;"><cq-study-context><div stxtap="StudyEdit.edit()"><translate original="Edit Settings...">Edit Settings...</translate></div><div stxtap="StudyEdit.remove()"><translate original="Delete Study">Delete Study</translate></div></cq-study-context></cq-dialog><cq-dialog style="top: 121.333px; left: 553px;"><cq-fib-settings-dialog><h4 class="title"><translate original="Settings">Settings</translate></h4><cq-scroll cq-no-maximize="" class="ps-container ps-theme-default" data-ps-id="b8360872-92e3-15d4-51e9-3bee19036af4" style="overflow-y: auto; max-height: 547px;"><cq-fibonacci-settings><template cq-fibonacci-setting=""></template></cq-fibonacci-settings><div cq-custom-fibonacci-setting=""><input class="ciq-heading" type="text"><translate original="%">%</translate><div class="ciq-btn stx-data" stxtap="add()"><translate original="Add">Add</translate></div></div><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="about:blank"></object></cq-scroll><div class="ciq-dialog-cntrls"><div class="ciq-btn" stxtap="close()"><translate original="Done">Done</translate></div></div></cq-fib-settings-dialog></cq-dialog><cq-dialog style="top: 134.333px; left: 553px;"><cq-study-dialog cq-study-axis="" cq-study-panel="alias"><h4 class="title"><translate original="Study">Study</translate></h4><cq-scroll cq-no-maximize="" class="ps-container ps-theme-default" data-ps-id="7d38cc33-787f-ae02-7322-c7e2a059de8f" style="overflow-y: auto; max-height: 547px;"><cq-study-inputs><template cq-study-input=""></template></cq-study-inputs><cq-study-outputs><template cq-study-output=""></template></cq-study-outputs><cq-study-parameters><template cq-study-parameters=""></template></cq-study-parameters><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="about:blank"></object></cq-scroll><div class="ciq-dialog-cntrls"><div class="ciq-btn" stxtap="close()"><translate original="Done">Done</translate></div></div></cq-study-dialog></cq-dialog><cq-dialog style="top: 124.5px; left: 477.5px;"><cq-theme-dialog><h4 class="title"><translate original="Create Custom Theme">Create Custom Theme</translate></h4><cq-close></cq-close><cq-scroll cq-no-maximize="" class="ps-container ps-theme-default" data-ps-id="9f46c486-a443-0ea0-7f04-ab3aa95727cb" style="overflow-y: auto; max-height: 547px;"><cq-section><cq-placeholder><translate original="Candle Color">Candle Color</translate><cq-theme-piece cq-piece="cu"><cq-swatch cq-overrides="Hollow"></cq-swatch></cq-theme-piece><cq-theme-piece cq-piece="cd"><cq-swatch cq-overrides="Hollow"></cq-swatch></cq-theme-piece></cq-placeholder><cq-placeholder><translate original="Candle Wick">Candle Wick</translate><cq-theme-piece cq-piece="wu"><cq-swatch></cq-swatch></cq-theme-piece><cq-theme-piece cq-piece="wd"><cq-swatch></cq-swatch></cq-theme-piece></cq-placeholder><cq-placeholder><translate original="Candle Border">Candle Border</translate><cq-theme-piece cq-piece="bu"><cq-swatch cq-overrides="No Border"></cq-swatch></cq-theme-piece><cq-theme-piece cq-piece="bd"><cq-swatch cq-overrides="No Border"></cq-swatch></cq-theme-piece></cq-placeholder><cq-separator></cq-separator><cq-placeholder><translate original="Line/Bar Chart">Line/Bar Chart</translate><cq-theme-piece cq-piece="lc"><cq-swatch></cq-swatch></cq-theme-piece></cq-placeholder><cq-separator></cq-separator><cq-placeholder><translate original="Mountain Base">Mountain Base</translate><cq-theme-piece cq-piece="mb"><cq-swatch></cq-swatch></cq-theme-piece></cq-placeholder><cq-placeholder><translate original="Mountain Peak">Mountain Peak</translate><cq-theme-piece cq-piece="mc"><cq-swatch></cq-swatch></cq-theme-piece></cq-placeholder></cq-section><cq-section><cq-placeholder><translate original="Background">Background</translate><cq-theme-piece cq-piece="bg"><cq-swatch></cq-swatch></cq-theme-piece></cq-placeholder><cq-placeholder><translate original="Grid Lines">Grid Lines</translate><cq-theme-piece cq-piece="gl"><cq-swatch></cq-swatch></cq-theme-piece></cq-placeholder><cq-placeholder><translate original="Date Dividers">Date Dividers</translate><cq-theme-piece cq-piece="dd"><cq-swatch></cq-swatch></cq-theme-piece></cq-placeholder><cq-placeholder><translate original="Axis Text">Axis Text</translate><cq-theme-piece cq-piece="at"><cq-swatch></cq-swatch></cq-theme-piece></cq-placeholder></cq-section><cq-action><input><div stxtap="save()" class="ciq-btn"><translate original="Save">Save</translate></div></cq-action><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="about:blank"></object></cq-scroll></cq-theme-dialog></cq-dialog><cq-dialog style="top: 90.3333px; left: 427.5px;"><cq-timezone-dialog><h4 class="title"><translate original="Choose Timezone">Choose Timezone</translate></h4><cq-close></cq-close><p><translate original="To set your timezone use the location button below, or scroll through the following list...">To set your timezone use the location button below, or scroll through the following list...</translate></p><p class="currentUserTimeZone"></p><div class="detect"><div class="ciq-btn" stxtap="removeTimezone()"><translate original="Use My Current Location">Use My Current Location</translate></div></div><div class="timezoneDialogWrapper" style="max-height:360px; overflow: auto;"><ul><li class="timezoneTemplate" style="display:none;cursor:pointer;"></li></ul></div><div class="instruct"><translate original="(Scroll for more options)">(Scroll for more options)</translate></div></cq-timezone-dialog></cq-dialog><cq-dialog style="top: 155.333px; left: 553px;"><cq-language-dialog><h4 class="title"><translate original="Choose language">Choose language</translate></h4><cq-close></cq-close><cq-languages><template></template></cq-languages></cq-language-dialog></cq-dialog><cq-dialog style="top: 85.3333px; left: 553px;"><cq-share-dialog><div><h4 class="title"><translate original="Share Your Chart">Share Your Chart</translate></h4><cq-separator></cq-separator><cq-share-create class="ciq-btn" stxtap="share()"><translate original="Create Image">Create Image</translate></cq-share-create><cq-share-generating style="display:none"><translate original="Generating Image">Generating Image</translate></cq-share-generating><cq-share-uploading style="display:none"><translate original="Uploading Image">Uploading Image</translate></cq-share-uploading><div class="share-link-div"></div><cq-separator></cq-separator><div class="ciq-dialog-cntrls"><div stxtap="close()" class="ciq-btn"><translate original="Done">Done</translate></div></div></div></cq-share-dialog></cq-dialog><div class="multiple-chart-dialog multiple-chart-dialog-4"><span class="close-this"><translate original="✕">✕</translate></span><h4 class="title"><translate original="Multiple charts">Multiple charts</translate></h4><div class="su-input-group su-static-label"><label class="su-input-label su-visible"><translate original="Chart 1">Chart 1</translate></label> <input id="multi-4-1" class="multi-chart-4" autocomplete="off" type="text" placeholder="" label="Chart 1"></div><div class="su-input-group su-static-label"><label class="su-input-label su-visible"><translate original="Chart 2">Chart 2</translate></label> <input id="multi-4-2" class="multi-chart-4" autocomplete="off" type="text" placeholder="" label="Chart 2"></div><div class="su-input-group su-static-label"><label class="su-input-label su-visible"><translate original="Chart 3">Chart 3</translate></label> <input id="multi-4-3" class="multi-chart-4" autocomplete="off" type="text" placeholder="" label="Chart 3"></div><div class="su-input-group su-static-label"><label class="su-input-label su-visible"><translate original="Chart 4">Chart 4</translate></label> <input id="multi-4-4" class="multi-chart-4" autocomplete="off" type="text" placeholder="" label="Chart 4"></div><button id="open_mutliple_4"><translate original="Done">Done</translate></button></div><div class="multiple-chart-dialog multiple-chart-dialog-2"><span class="close-this"><translate original="✕">✕</translate></span><h4 class="title"><translate original="Multiple charts">Multiple charts</translate></h4><div class="su-input-group su-static-label"><label class="su-input-label su-visible"><translate original="Chart 1">Chart 1</translate></label> <input id="multi-2-1" class="multi-chart-2" autocomplete="off" type="text" placeholder="" label="Chart 1"></div><div class="su-input-group su-static-label"><label class="su-input-label su-visible"><translate original="Chart 2">Chart 2</translate></label> <input id="multi-2-2" class="multi-chart-2" autocomplete="off" type="text" placeholder="" label="Chart 2"></div><button id="open_mutliple_2"><translate original="Done">Done</translate></button></div><cq-side-panel style="width: 280px;"><div class="stx-panel-side stx-trade-panel closed">
+  <div class="stx-wrapper stx-trade-nav">
+      <ul class="stx-orders">
+          <li class="stx-market" style=""><a><translate original="MKT">MKT</translate></a></li>
+          <li class="stx-buy" style=""><a><translate original="Buy">Buy</translate></a></li>
+          <li class="stx-sell" style="display:none"><a><translate original="Sell">Sell</translate></a></li>
+          <li class="stx-short" style=""><a><translate original="Short">Short</translate></a></li>
+          <li class="stx-cover" style="display:none"><a><translate original="Cover">Cover</translate></a></li>
+          <li class="stx-strangle" style="display:none">
+            <a><translate original="Strangle">Strangle</translate></a>
+            <div class="stx-tooltip left">
+              <div><translate original="Strangle">Strangle</translate></div>
+              <span></span></div>
+          </li>
+          <li class="stx-straddle" style="display:none">
+            <a><translate original="Straddle">Straddle</translate></a>
+            <div class="stx-tooltip left">
+              <div><translate original="Straddle">Straddle</translate></div>
+              <span></span></div>
+          </li>
+          <li class="stx-bracket" style="display:none">
+            <a><translate original="Bracket">Bracket</translate></a>
+            <div class="stx-tooltip left">
+              <div><translate original="Bracket">Bracket</translate></div>
+              <span></span></div>
+          </li>
+      </ul>
+      <ul class="stx-account">
+          <li><span><translate original="Cash">Cash</translate></span> <span class="tfc-current-cash"><translate original="₹NaN">₹NaN</translate></span></li>
+          <li><span><translate original="Funds Available">Funds Available</translate></span> <span class="tfc-current-funds"><translate original="₹NaN">₹NaN</translate></span></li>
+          <li><span><translate original="Position">Position</translate></span> <span class="tfc-current-position"><translate original="0">0</translate></span></li>
+      </ul>
+       
+       <a class="stx-trade-ticket-toggle open"><translate original="Expand/Collapse">Expand/Collapse</translate></a>
+      
+  </div>
+  
+  <div class="stx-wrapper stx-trade-info active">
+	<ul class="stx-orders">
+        <li class="stx-market" style=""><a><translate original="MKT">MKT</translate></a></li>
+        <li class="stx-buy" style=""><a><translate original="Buy">Buy</translate></a></li>
+        <li class="stx-sell" style="display:none"><a><translate original="Sell">Sell</translate></a></li>
+        <li class="stx-short" style=""><a><translate original="Short">Short</translate></a></li>
+        <li class="stx-cover" style="display:none"><a><translate original="Cover">Cover</translate></a></li>
+        <li class="stx-strangle" style="display:none">
+          <a><translate original="Strangle">Strangle</translate></a>
+          <div class="stx-tooltip left">
+            <div><translate original="Strangle">Strangle</translate></div>
+            <span></span></div>
+        </li>
+        <li class="stx-straddle" style="display:none">
+          <a><translate original="Straddle">Straddle</translate></a>
+          <div class="stx-tooltip left">
+            <div><translate original="Straddle">Straddle</translate></div>
+            <span></span></div>
+        </li>
+        <li class="stx-bracket" style="display:none">
+          <a><translate original="Bracket">Bracket</translate></a>
+          <div class="stx-tooltip left">
+            <div><translate original="Bracket">Bracket</translate></div>
+            <span></span></div>
+        </li>
+     </ul>
+       
+    <div class="stx-panel-module stx-trade-account">
+      <div class="stx-section">
+        <table border="0" cellspacing="0" cellpadding="0">
+          <tbody><tr>
+            <td><translate original="Net Liquidation Value">Net Liquidation Value</translate></td>
+            <td class="tfc-liquidity"><translate original="₹NaN">₹NaN</translate></td>
+          </tr>
+          <tr>
+            <td><translate original="Unsettled Cash">Unsettled Cash</translate></td>
+            <td class="tfc-unsettled-cash"><translate original="₹NaN">₹NaN</translate></td>
+          </tr>
+          <tr>
+            <td><translate original="Cash and Sweep Vehicle">Cash and Sweep Vehicle</translate></td>
+            <td class="tfc-cash"><translate original="₹NaN">₹NaN</translate></td>
+          </tr>
+          <tr style="display: none;">
+            <td><translate original="Unrealized Gain/Loss">Unrealized Gain/Loss</translate></td>
+            <td class="tfc-profitloss"></td>
+          </tr>
+          <tr>
+            <td><translate original="Available Funds for Trading">Available Funds for Trading</translate></td>
+            <td class="tfc-buying-power"><translate original="₹NaN">₹NaN</translate></td>
+          </tr>
+        </tbody></table>             
+      </div>
+	</div>
+    
+   
+  	<div class="stx-panel-module stx-trade-positions" style="position:relative">
+    	<div class="stx-head-bar">
+      		<h4><span class="stx-ico"></span><translate original="Positions">Positions</translate></h4>
+      		<div class="stx-btn click stx-close-all" style="display: none;"><translate original="Close All">Close All</translate></div>
+      		<ul class="tfc-positions-view holder" style="display: none;">
+      		<li class="tfc-positions-view summary active"><i class="fa"></i></li>
+      		<li class="tfc-positions-view lots"><i class="fa"></i></li>
+      		<li class="tfc-positions-view performance"><i class="fa"></i></li>
+      		<li class="tfc-positions-view maintenance"><i class="fa"><translate original="/">/</translate></i></li>
+      		</ul>
+    	</div>
+    	<div class="stx-section stx-holder" style="height: 60px;">                        
+    	<cq-scroll class="ps-container ps-theme-default" data-ps-id="c8b14641-ae47-7249-5771-5ff2eee19612" style="overflow-y: auto; height: 55px; max-height: 55px;">
+      	  <table cellspacing="0" cellpadding="0" border="0" class="stx-current-position">
+        	<thead style="display: none;">
+          	<tr class="tfc-positions-view summary active">
+	            <th scope="col"><translate original="SYM">SYM</translate></th>
+	            <th scope="col"><translate original="QTY">QTY</translate></th>
+	            <th scope="col"><translate original="Basis">Basis</translate></th>
+	            <!--th scope="col">Total</th-->
+	            <th scope="col"><translate original="G/L">G/L</translate></th>
+	            <th scope="col"><translate original="% G/L">% G/L</translate></th>
+	            <!--th scope="col">Today</th-->
+          	</tr>
+          	<tr class="tfc-positions-view lots">
+	            <th scope="col" class="tfc-trade-date"><translate original="Date">Date</translate></th>
+	            <th scope="col"><translate original="QTY">QTY</translate></th>
+	            <th scope="col"><translate original="Basis">Basis</translate></th>
+	            <th scope="col"><translate original="G/L">G/L</translate></th>
+	            <th scope="col"><translate original="% G/L">% G/L</translate></th>
+          	</tr>
+          	<tr class="tfc-positions-view performance">
+	            <th scope="col"><translate original="SYM">SYM</translate></th>
+	            <th scope="col"><translate original="Cost">Cost</translate></th>
+	            <th scope="col"><translate original="Value">Value</translate></th>
+	            <th scope="col"><translate original="G/L">G/L</translate></th>
+	            <th scope="col"><translate original="% G/L">% G/L</translate></th>
+          	</tr>
+          	<tr class="tfc-positions-view maintenance">
+	            <th scope="col" class="tfc-col-qty"><translate original="QTY">QTY</translate></th>
+	            <th scope="col"><translate original="Basis">Basis</translate></th>
+	            <th scope="col" class="tfc-trade-actions" colspan="2"><translate original="Protections">Protections</translate></th>
+	            <th scope="col"></th>
+          	</tr>    	
+        	</thead>
+        	<tbody><tr><td class="tfc-not-found"><translate original="No Positions">No Positions</translate></td></tr></tbody>
+      	  </table><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="about:blank"></object></cq-scroll></div>
+  	</div>
+    
+	<div class="stx-panel-module stx-trade-current" style="position:relative">
+    	<div class="stx-head-bar no-resize">
+      		<h4><span class="stx-ico"></span><translate original="Open Orders">Open Orders</translate></h4>
+    	</div>
+    	<div class="stx-section stx-holder" style="height: 2px;">      
+    	<cq-scroll class="ps-container ps-theme-default" data-ps-id="53ecc283-1510-adbe-3493-1c076bcdd34c" style="overflow-y: auto; height: 0px;">
+      		<table cellspacing="0" cellpadding="0" border="0" class="stx-current-orders">
+        		<tbody><tr><td class="tfc-not-found"><translate original="No Open Orders">No Open Orders</translate></td></tr></tbody>
+      		</table><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div><object style="visibility:hidden; display: block; position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; border:0px;" type="text/html" data="about:blank"></object></cq-scroll></div>
+  	</div>
+  	<a class="stx-trade-ticket-toggle close"><translate original="Expand/Collapse">Expand/Collapse</translate></a>
+  </div>
+</div></cq-side-panel></cq-context><div class="modal-mask" id="confirm_dialog"><div class="modal-wrapper"><div class="modal-container"><div class="modal-header"><h2 slot="header"><translate original="Are you sure?">Are you sure?</translate></h2></div><div class="modal-body"><div slot="body"><span><translate original="Clearing your preferences will delete all indicators and views, do you want to continue?">Clearing your preferences will delete all indicators and views, do you want to continue?</translate></span><br><br></div></div><div class="modal-footer"><div slot="footer" class="actions"><button id="confirm_cancel" class="button-blue"><span><translate original="Yes">Yes</translate></span></button> <button id="close_cancel" class="button-outline"><span><translate original="No">No</translate></span></button></div></div></div></div></div><script src="./jquery.min.js.download"></script><script data-src="/static/build/chart/dep.min.js" data-key="chart/dep.min.js" data-hash="2.9.10" src="blob:https://kite.zerodha.com/0d028488-f21d-4d7b-8580-109626a4c30e" data-indexed="true"></script><script data-src="/static/build/chart/lib.min.js" data-key="chart/lib.min.js" data-hash="2.9.10" src="blob:https://kite.zerodha.com/e5df7e4b-d362-4480-ad01-bb7e99047c86" data-indexed="true"></script><!-- custom indicator file definitions--><script data-src="/static/build/chart/custom-indicator-utils.min.js" data-key="chart/custom-indicator-utils.min.js" data-hash="2.9.10" src="blob:https://kite.zerodha.com/c49c388d-97ef-456f-a080-305c4c5b5913" data-indexed="true"></script><script data-src="/static/build/chart/custom-indicator.min.js" data-key="chart/custom-indicator.min.js" data-hash="2.9.10" src="blob:https://kite.zerodha.com/8251227a-4a3e-426f-92cd-75a0b5bf2ac6" data-indexed="true"></script><script data-src="/static/build/chart/quoteFeed.min.js" data-key="chart/quoteFeed.min.js" data-hash="2.9.10" src="blob:https://kite.zerodha.com/9314667a-ba12-4d6b-907f-b3d2d952423e" data-indexed="true"></script><script data-src="/static/build/chart/advanced-chart.min.js" data-key="chart/advanced-chart.min.js" data-hash="2.9.10" src="blob:https://kite.zerodha.com/dce114b5-f9f3-4e17-a3a2-4c6c9a570e51" data-indexed="true"></script><script>function initIndexedCache(ic) {
+			ic.init().then(function() {
+				ic.load().then(function() {
+					var loader = document.getElementById("splash-screen");
+					setTimeout(function () {
+						loader.remove();
+					}, 250);
+
+					ic.prune([
+						"chart/jquery.min.js",
+						"chart/dep.min.js",
+						"chart/lib.min.js",
+						"chart/quoteFeed.min.js",
+						"chart/advanced-chart.min.js",
+						"chart/custom-indicator-utils.min.js",
+						"chart/custom-indicator.min.js",
+						"chart/dep-legacy.min.js",
+						"chart/chartiq.min.js",
+						"chart/utils-legacy.min.js",
+						"chart/webcomponents-lite.min.min.js",
+						"chart/componentUI.min.js",
+						"chart/components.min.js",
+						"chart/advanced-chart-legacy.min.js"
+					])
+				}).catch(function(err) {
+					console.log("error loading indexed-cache", err);
+				})
+			}).catch(function(err) {
+				console.log("error initializing indexed-cache", err);
+			})
+		}</script><!-- Modern browsers --><script type="module">import IndexedCache from "/static/js/indexed-cache.esm.min.js?v=ic0.0.1";
+		initIndexedCache(new IndexedCache({
+			storeName: "kite-charts",
+			// Expiry in a year.
+			expiry: 525600
+		}));</script><!-- Old browsers --><script src="./indexed-cache.legacy.min.js.download" nomodule=""></script><script nomodule="">initIndexedCache(new IndexedCache({
+			storeName: "kite-charts",
+			// Expiry in a year.
+			expiry: 525600
+		}));</script><div class="tfc container">
+    <!--Add .red or .green to control color--> 
+    <div class="tfc drag-price-line red" style="display:none;">
+      <div class="drag-line"></div>
+      <div class="drag-price">
+        <div class="tfc-price-arrow"><span></span> </div>
+        <div class="tfc-price"></div>
+      </div>
+    </div>
+
+    <div class="tfc open-order-marker red" style="display:none;">
+      <div class="open-order-line"></div>
+      <div class="open-order-price">
+        <div class="tfc-price-arrow"><span></span> </div>
+        <div class="tfc-price"></div>
+      </div>
+    </div>
+    
+<!-- Market Orders -->
+
+    <div class="tfc create-order market-order" style="display:none;">    
+      <!--  remove display:none if you want to have a floating 'x' button to close the Market Orders overlay -->
+      <div onclick="" class="stx-btn stx-ico" style="display:none; top:-21px"><span class="stx-ico-close"></span></div>      
+      <div class="tfc-market-section">
+	    <div class="col1 tfc-market-buy-action">
+	      <div class="click tfc-buy" onclick=""> 
+	        <div class="stx-ico-up"></div>
+	        <span class="tfc-click-label"><translate original="Proceed">Proceed</translate></span>
+	        <span class="tfc-ask"><span></span><strong><sup></sup></strong></span>
+	      </div>
+	    </div>
+	    <div class="col2">
+	      <div class="inputTemplate">
+	        <div class="stx-data">
+	          <input type="text" class="tfc-shares stx-input-field" value="" placeholder="">
+	        </div>
+	        <div class="stx-label tfc-shares-to-buy"><translate original="Qty.">Qty.</translate></div>
+	        <div class="stx-label tfc-qty-to-buy"><translate original="Units">Units</translate></div>
+	      </div>
+	      <div class="inputTemplate amount">
+	        <div class="stx-data">
+	          <input type="text" class="tfc-currency stx-input-field" value="" placeholder="">
+	        </div>
+	        <div class="stx-label tfc-price-dollars"><translate original="Value">Value</translate></div>
+	        <div class="stx-label tfc-price-amt"><translate original="Amount">Amount</translate></div>
+	      </div>
+	    </div>
+        <div class="col3 tfc-market-sell-action">
+          <div class="click tfc-sell" onclick=""> 
+            <div class="stx-ico-down"></div>
+            <span class="tfc-click-label"><translate original="Proceed">Proceed</translate></span>
+            <span class="tfc-bid"><span></span><strong><sup></sup></strong></span>
+          </div>
+        </div>
+	  </div>
+      
+      <div class="tfc-market-section complex" style="display:none;">
+        <div class="wrapper">
+      
+         <div class="col1">
+            <div class="stx-head stop-loss-label"></div>
+            <div class="stx-data">
+              <input type="text" class="tfc-market-loss-bracket stx-input-field" value="" placeholder="">
+            </div>
+            <div class="stx-label tfc-pips"><translate original="pips">pips</translate></div>
+            <div class="stx-label tfc-points"><translate original="points">points</translate></div>
+         </div>
+           
+         <div class="col2">
+            <div class="stx-head take-profit-label"></div>
+            <div class="stx-data">
+               <input type="text" class="tfc-market-profit-bracket stx-input-field" value="" placeholder="">
+            </div>
+            <div class="stx-label tfc-pips"><translate original="pips">pips</translate></div>
+            <div class="stx-label tfc-points"><translate original="points">points</translate></div>
+         </div>
+       
+       </div>
+      </div>  
+    </div>
+    
+<!-- New Sell and Buy Orders -->
+
+    <!-- Use ID .new-sell-order for sell order -->
+    <!-- Use ID .new-buy-order for buy order -->
+    <!-- Use ID .new-buy-order + add class .with-stop to hide stop link and show limit link -->
+    <!-- Use ID .new-buy-order + add class .with-limit to hide limit link and show Risk/Reward -->
+     <div class="tfc create-order stx-limit-order new-buy-order" style="display:none;">
+        <div class="tfc-cancel-header"><translate original="Modify ">Modify </translate><span class="tfc-cancel-description"><translate original="Sell 1000 qty. @197.00">Sell 1000 qty. @197.00</translate></span></div>
+        <div onclick="" class="stx-btn stx-ico"><span class="stx-ico-close"></span></div>
+        <div class="stx-data">
+          <div class="col1">
+            <div class="inputTemplate">
+              <label class="su-label"><translate original="Product">Product</translate></label>
+              <select class="stx-select">
+                <option class="tfc-cnc" value="CNC"><translate original="CNC">CNC</translate></option>
+                <option class="tfc-nrml" value="NRML"><translate original="NRML">NRML</translate></option>
+                <option class="tfc-mis" value="MIS"><translate original="MIS">MIS</translate></option>
+              </select>
+            </div>
+          </div>
+          <div class="col2">
+            <div class="inputTemplate">
+            <div class="stx-data">
+              <label class="su-label"><translate original="Qty.">Qty.</translate></label>
+              <input min="1" step="1" type="number" id="tfc_qty_input" class="tfc-shares stx-input-field" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="off" placeholder="" value="1">
+            </div>
+            <div class="stx-label tfc-shares-owned"><translate original="of ">of </translate><span></span></div>
+            <div class="stx-label tfc-shares-to-buy"><span><translate original="Qty.">Qty.</translate></span></div>
+            <div class="stx-label tfc-qty-to-buy"><translate original="Units">Units</translate></div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="stx-data">
+          <div class="col1 su-switch-grp">
+            <span class="b-switch"><translate original="Buy">Buy</translate></span>
+            <input id="buy-sell-switch" type="checkbox">
+            <label for="buy-sell-switch" class="su-switch"></label>
+            <span class="s-switch"><translate original="Sell">Sell</translate></span>
+          </div>
+          <div class="col2" style="display: none;">
+          <div class="inputTemplate amount">
+            <div class="stx-data">
+              <input type="number" class="tfc-currency stx-input-field" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="off" placeholder="">
+            </div>
+            <div class="stx-label tfc-price-dollars"><translate original="Value">Value</translate></div>
+            <div class="stx-label tfc-price-amt"><translate original="Amount">Amount</translate></div>
+          </div>
+          <div class="inputTemplate gain">
+            <div class="stx-data tfc-gain-amount"></div>
+            <div class="stx-data tfc-gain-percent"></div>
+          </div>
+           <div class="inputTemplate OTO stop"> <a><span class="stx-ico"></span><translate original="Add Stop Loss">Add Stop Loss</translate></a> </div>
+          <div class="inputTemplate OTO limit"> <a><span class="stx-ico"></span><translate original="Add Take Profit">Add Take Profit</translate></a> </div>
+          <div class="inputTemplate risk-reward">
+            <div class="stx-data"></div>
+            <div class="stx-label"><translate original="Rsk/Rwrd">Rsk/Rwrd</translate></div>
+          </div>
+        </div>
+        <div class="col2">
+          <div class="click tfc-buy"><translate original="Buy">Buy</translate></div>
+          <div class="click tfc-sell"><translate original="Sell">Sell</translate></div>
+          <div class="click tfc-short"><translate original="Proceed">Proceed</translate></div>
+          <div class="click tfc-cover"><translate original="Cover">Cover</translate></div>
+          <div class="click tfc-replace"><translate original="Modify">Modify</translate></div>
+        </div>
+        <div class="col1 tfc-cancel-button click stx-btn"><translate original="Cancel">Cancel</translate></div>
+        </div>
+        <span class="tfc-info"><translate original="Drag this window to set price">Drag this window to set price</translate></span>
+        <span class="tfc-error"></span>
+      <div class="arrow"><span></span></div>
+    </div>
+
+<!-- Buy, Cover, Bracket Order OTO Boxes -->
+
+    <!-- Use class .OTO.stx-stop for Stop box -->
+    <!-- Use class .OTO.stx-limit for Limit box (hides "trailing" option) -->
+    <div class="tfc create-order OTO stx-stop" style="display:none;">
+      <div class="stx-btn stx-ico"><span class="stx-ico-close"></span></div>
+      <div class="col1 OTO">
+        <div class="stx-head tfc-oto-leg-label"></div>
+      </div>
+      <div class="col2">
+          <div class="stx-data tfc-gain-percent"><translate original="0%">0%</translate></div>
+      </div>
+      <div class="col3">
+          <div class="stx-data tfc-gain-amount">&nbsp;</div>
+      </div>
+      <div class="stx-data trailing" style="display:none;"><span class="click"><translate original="Make Trailing">Make Trailing</translate></span></div><!-- implement trailing stops in the future as a toggle, with percent or amount conditions -->
+    </div>
+
+<!-- New OCO Order Legs -->
+
+
+    <!-- oco above -->
+    <div class="tfc create-order oco tfc-oco-above" style="display:none;">
+      <div class="stx-head"><translate original="Take Profit">Take Profit</translate></div>
+      <div class="stx-data"><span></span><translate original=" Qty."> Qty.</translate></div>
+    </div>
+    
+    <!-- oco below -->
+    <div class="tfc create-order oco tfc-oco-below" style="display:none;">
+      <div class="stx-head"><translate original="Take Profit">Take Profit</translate></div>
+      <div class="stx-data"><span></span><translate original=" Qty."> Qty.</translate></div>
+    </div>
+
+    
+    <div class="tfc create-order stx-oco-order" style="display:none;">
+      <div class="stx-btn stx-ico"><span class="stx-ico-close"></span></div>
+      <div class="col1">
+        <div class="inputTemplate">
+          <div class="stx-data">
+            <input type="text" value="" class="stx-input-field" placeholder="">
+          </div>
+	        <div class="stx-label tfc-price-dollars"><translate original="Value">Value</translate></div>
+	        <div class="stx-label tfc-price-amt"><translate original="Amount">Amount</translate></div>
+        </div>
+		<div class="stx-data">
+			<select class="stx-select">
+				<!-- <option class="tfc-day" value="CNC" selected>CNC</option>
+				<option class="tfc-nrml" value="NRML" selected>NRML2</option>
+				<option value="MIS">MIS</option> -->
+			</select>
+		</div>
+      </div>
+      <div class="col2">
+        <div class="click oco"><translate original="Order">Order</translate></div>
+      </div>
+      <input type="hidden" value="" class="tfc-bracketid">
+    </div>
+
+    <div class="tfc tfc-shade" style="display:none">
+    </div>
+
+</div><div class="stx-dialog-container trade">
+
+  <div id="tfcConfirmOrder" style="display:none;" class="stx-dialog">
+    <h4><translate original="Confirm Your Order">Confirm Your Order</translate></h4>
+    <div onclick="CIQ.TFC.dismissDialog()" class="stx-btn stx-ico stx-ico-close"><span class="stx-ico-close"></span></div>
+    <div class="processOrder">
+        <div class="tfc-loading"></div>
+    </div>
+    <div class="orderProcessed" style="display:none">
+        <div class="confirm-ticket">
+          <div class="row">
+            <span class="stx-label"><translate original="Description:">Description:</translate></span> <span class="tfcOrderDescription stx-value"></span>
+          </div>
+          <div class="row">
+            <span class="stx-label"><translate original="Price:">Price:</translate></span> <span class="tfcOrderPrice stx-value"></span>
+          </div>
+          <div class="row">
+            <span class="stx-label"><translate original="Timeframe:">Timeframe:</translate></span><span class="tfcOrderTif stx-value"></span>
+          </div>
+          <span class="tfc-confirm-basis row"><span class="stx-label"><translate original="Opened:">Opened:</translate></span><span class="tfcOrderBasis stx-value"></span></span>
+          <span class="tfc-confirm-pl row"><span class="stx-label"><translate original="Estimated P/L:">Estimated P/L:</translate></span><span class="tfcOrderPl stx-value"></span></span>
+          <span class="tfc-confirm-oto row"><span class="stx-label"><translate original="OTO:">OTO:</translate></span><span class="tfcOrderOTO stx-value"></span></span>
+        </div>
+        <div class="tfc-errors"></div>
+        <div class="tfc-warnings"></div>
+        <div class="stx-btn click tfcAbandon"><translate original="Abandon">Abandon</translate></div>
+        <div class="stx-btn click tfcSubmit"><translate original="Submit">Submit</translate></div>
+    </div>
+  </div>
+  
+  <div id="tfcConfirmReplace" style="display:none;" class="stx-dialog">
+    <h4><translate original="Replace Your Order">Replace Your Order</translate></h4>
+    <div onclick="CIQ.TFC.dismissDialog()" class="stx-btn stx-ico stx-ico-close"><span class="stx-ico-close"></span></div>
+    <div class="processOrder">
+        <div class="tfc-loading"></div>
+    </div>
+    <div class="orderProcessed" style="display:none">
+        <div class="confirm-ticket">
+          <span class="stx-label"><translate original="Description:">Description:</translate></span><span class="tfcOrderDescription stx-value"></span><br>
+          <hr>
+          <div class="compare-ticket">
+            <div class="row">
+              <span></span><span class="col1 stx-head"><translate original="Old Order">Old Order</translate></span><span class="col2 stx-head"><translate original="New Order">New Order</translate></span>
+            </div>
+            <div class="row">
+                <span class="stx-label"><translate original="Quantity:">Quantity:</translate></span><span class="col1 tfcOrderQuantityOld stx-value"></span><span class="col2 tfcOrderQuantityNew stx-value"></span>
+            </div>
+            <div class="row">
+             <span class="stx-label"><translate original="Price:">Price:</translate></span><span class="col1 tfcOrderPriceOld stx-value"></span><span class="col2 tfcOrderPriceNew stx-value"></span>
+            </div>
+            <div class="row">
+                <span class="stx-label"><translate original="Timeframe:">Timeframe:</translate></span><span class="col1 tfcOrderTifOld stx-value"></span><span class="col2 tfcOrderTifNew stx-value"></span>
+            </div>
+            <div class="tfc-confirm-oto row">
+                <span class="stx-label"><translate original="OTO:">OTO:</translate></span><span class="col1 tfcOrderOTOOld stx-value"></span><span class="col2 tfcOrderOTONew stx-value"></span>
+            </div>
+          </div> 
+        </div>
+        <div class="tfc-errors"></div>
+        <div class="tfc-warnings"></div>
+        <div class="stx-btn click tfcAbandon"><translate original="Abandon">Abandon</translate></div>
+        <div class="stx-btn click tfcSubmit"><translate original="Submit">Submit</translate></div>
+    </div>
+  </div>
+    
+  <div id="tfcConfirmOCO" style="display:none;" class="stx-dialog">
+    <h4><translate original="Confirm: One Cancels the Other">Confirm: One Cancels the Other</translate></h4>
+    <div onclick="CIQ.TFC.dismissDialog()" class="stx-btn stx-ico stx-ico-close"><span class="stx-ico-close"></span></div>
+    <div class="processOrder">
+        <div class="tfc-loading"></div>
+    </div>
+    <div class="orderProcessed" style="display:none">
+        <div class="confirm-ticket">
+            <span class="stx-label"></span> <span class="tfcOrderDescription1 stx-value"></span><br>
+            <span class="stx-label"></span> <span class="tfcOrderDescription2 stx-value"></span><br>
+            <span class="stx-label"><translate original="Timeframe:">Timeframe:</translate></span><span class="tfcOrderTif stx-value"></span>
+        </div>
+        <div class="tfc-errors"></div>
+        <div class="tfc-warnings"></div>
+        <div class="stx-btn click tfcAbandon"><translate original="Abandon">Abandon</translate></div>
+        <div class="stx-btn click tfcSubmit"><translate original="Submit">Submit</translate></div>
+    </div>
+  </div> 
+     
+  <div id="tfcConfirmCloseAll" style="display:none;" class="stx-dialog">
+    <h4><translate original="Confirm Your Request">Confirm Your Request</translate></h4>
+    <div onclick="CIQ.TFC.dismissDialog()" class="stx-btn stx-ico stx-ico-close"><span class="stx-ico-close"></span></div>
+    <div class="processOrder">
+        <div class="tfc-loading"></div>
+    </div>
+    <div class="orderProcessed" style="display:none">
+        <div class="confirm-ticket">
+          <div class="row">
+            <span class="tfc-attention"><translate original="You have requested to immediately close all positions from your account.  Please click Submit to perform this action, or Abandon to abort.">You have requested to immediately close all positions from your account.  Please click Submit to perform this action, or Abandon to abort.</translate></span>
+          </div>
+        </div>
+        <div class="stx-btn click tfcAbandon"><translate original="Abandon">Abandon</translate></div>
+        <div class="stx-btn click tfcSubmit"><translate original="Submit">Submit</translate></div>
+    </div>
+  </div>
+
+</div><div class="ciq_stashed_texts" style="display: none;"><translate original="Enter Symbol">Enter Symbol</translate><translate original="Search in studies">Search in studies</translate><translate original="Search instrument">Search instrument</translate><translate original="Name">Name</translate></div></body></html>
